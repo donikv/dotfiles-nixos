@@ -12,6 +12,12 @@
   write_stylus
   cups
   home-manager
+  evtest
+  libinput
+  discord
+  maestral-gui
+  maestral
+  xournalpp
   (vscode-with-extensions.override {
     vscodeExtensions = with vscode-extensions; [
       bbenoist.nix
@@ -41,5 +47,11 @@
     enable = true;
     nssmdns = true;
     openFirewall = true;
+  };
+ 
+   programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 }
