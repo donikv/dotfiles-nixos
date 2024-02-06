@@ -18,6 +18,8 @@
       nix/amd.nix# nix/nvidia.nix
       nix/office.nix
       nix/biometrics.nix
+      nix/dev.nix
+      nix/android.nix
     ] ++ (import nix/window-server.nix).getWindowServer (import nix/window-server.nix).gtk;
 
   #Kernel 
