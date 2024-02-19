@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {}, ...} :{
   environment.systemPackages = with pkgs; [
+    python3
     (vscode-with-extensions.override {
     vscodeExtensions = with vscode-extensions; [
       bbenoist.nix

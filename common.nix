@@ -1,11 +1,11 @@
 {pkgs ? import <nixpkgs> {}, ...} : {
   services.teamviewer.enable = true;
   environment.systemPackages = with pkgs; [
+  firefox
   teamviewer
   vim
   git
   bitwarden
-  steam
   quickemu
   spotify
   sioyek
@@ -19,18 +19,17 @@
   maestral
   xournalpp
   libsForQt5.okular
+  libsForQt5.kdeconnect-kde
   ];
 
-  services.printing.enable = true;
-  services.avahi = {
+  #NETWORKING FOR KDE CONNECT
+  networking.firewall = { 
     enable = true;
-    nssmdns = true;
-    openFirewall = true;
-  };
- 
-   programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
+    allowedTCPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+    allowedUDPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+  };  
 }

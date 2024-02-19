@@ -13,13 +13,14 @@
       # nix/plasma.nix #nix/gnome.nix
       nix/locale.nix
       nix/common.nix
-      nix/python.nix
+      #nix/python.nix
       nix/dropbox.nix
       nix/amd.nix# nix/nvidia.nix
       nix/office.nix
       nix/biometrics.nix
       nix/dev.nix
       nix/android.nix
+      nix/gaming.nix
     ] ++ (import nix/window-server.nix).getWindowServer (import nix/window-server.nix).gtk;
 
   #Kernel 
@@ -93,7 +94,7 @@
     description = "donik";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+    #  firefox
     #  thunderbird
     ];
     };
