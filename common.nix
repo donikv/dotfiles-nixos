@@ -21,6 +21,7 @@
   libsForQt5.okular
   libsForQt5.kdeconnect-kde
   super-productivity
+  tailscale
   ];
   
   services.tailscale.enable = true;
