@@ -20,7 +20,10 @@
   xournalpp
   libsForQt5.okular
   libsForQt5.kdeconnect-kde
+  super-productivity
   ];
+  
+  services.tailscale.enable = true;
 
   #NETWORKING FOR KDE CONNECT
   networking.firewall = { 
