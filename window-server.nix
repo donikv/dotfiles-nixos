@@ -1,5 +1,5 @@
 {
-gtk = true;
+gtk = false;
 
 getWindowServer = isgtk : if isgtk then [./gnome.nix] else [./plasma.nix]; 
 
