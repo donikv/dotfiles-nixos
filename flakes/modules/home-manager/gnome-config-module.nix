@@ -11,8 +11,6 @@
 
 
   #home.sessionVariables.GTK_THEME = "palenight";
-
-  home-manager.users.donik = {
     dconf.settings = {
         "org/gnome/desktop/wm/preferences" = {
             button-layout = "close,minimize,maximize:";
@@ -52,12 +50,12 @@
       enable = true;
 
       iconTheme = {
-        name = "Papirus-Dark";
+        name = "Papirus";
         package = pkgs.papirus-icon-theme;
       };
 
       theme = {
-        name = "palenight";
+        name = "adawita";
         package = pkgs.palenight-theme;
       };
 
@@ -77,7 +75,6 @@
           gtk-application-prefer-dark-theme=0
         '';
       };
-  };
   };
  # environment.systemPackages = with pkgs.gnomeExtensions; [ 
  #   appindicator
