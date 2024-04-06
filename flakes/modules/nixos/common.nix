@@ -1,4 +1,4 @@
-{pkgs ? import <nixpkgs> {}, ...} : {
+{pkgs, ...} : {
   services.teamviewer.enable = true;
   environment.systemPackages = with pkgs; [
   firefox
@@ -20,7 +20,7 @@
   xournalpp
   libsForQt5.okular
   libsForQt5.kdeconnect-kde
-  super-productivity
+  pkgs.unstable.super-productivity
   ];
   
   services.tailscale.enable = true;

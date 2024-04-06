@@ -74,6 +74,7 @@
           office
           gaming
           android
+          #self.overlays
           #declerativeHome
           #./modules/gnome.nix
         ];
