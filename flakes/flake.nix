@@ -13,6 +13,7 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -62,9 +63,16 @@
       # FIXME replace with your hostname
       nixos-envy = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
+        modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+          common
+          dev
+          gnome
+          locale
+          amd
+          #declerativeHome
+          #./modules/gnome.nix
         ];
       };
     };
@@ -76,9 +84,13 @@
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
+        modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          gnome-config
+          office
+          gaming
+          android
         ];
       };
     };

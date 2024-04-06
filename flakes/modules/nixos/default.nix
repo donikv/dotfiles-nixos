@@ -6,4 +6,6 @@
   common = import ./common.nix;
   dev = import ./dev.nix;
   gnome = import ./gnome.nix;
+  amd = import ./amd.nix;
+  locale = import ./locale.nix;
 }

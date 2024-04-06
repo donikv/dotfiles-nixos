@@ -22,9 +22,9 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ./modules/nixos/common.nix
-    ./modules/nixos/gnome.nix
-    ./modules/nixos/dev.nix
+    #../modules/nixos/common.nix
+    #../modules/nixos/gnome.nix
+    #../modules/nixos/dev.nix
   ];
 
   nixpkgs = {
@@ -134,7 +134,26 @@
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "donik";
 
+  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
+  # Allow unfree packages
+  #nixpkgs.config.allowUnfree = true;
+  hardware.enableAllFirmware = true;
+  hardware.sensor.iio.enable = true;
+  
+  security.sudo.extraRules = [{
+     commands = [{
+       command = "/run/current-system/sw/bin/evtest";
+       options = ["NOPASSWD"];  
+     }];
+     groups = ["wheel" "root"];  
+  }];
+ 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {

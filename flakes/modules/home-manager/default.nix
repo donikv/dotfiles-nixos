@@ -3,5 +3,8 @@
 {
   # List your module files here
   # my-module = import ./my-module.nix;
-  # gaming = import ./gaming.nix;
+  gaming = import ./gaming.nix;
+  gnome-config = import ./gnome-config-module.nix;
+  office = import ./office.nix;
+  android = import ./android.nix;
 }
