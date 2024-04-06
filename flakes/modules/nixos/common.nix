@@ -11,7 +11,7 @@
   sioyek
   write_stylus
   cups
-  home-manager
+  #home-manager
   evtest
   libinput
   discord
