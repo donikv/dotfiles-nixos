@@ -71,6 +71,9 @@
           gnome
           locale
           amd
+          office
+          gaming
+          android
           #declerativeHome
           #./modules/gnome.nix
         ];
@@ -88,9 +91,6 @@
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
           gnome-config
-          office
-          gaming
-          android
         ];
       };
     };
