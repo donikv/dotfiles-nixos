@@ -61,7 +61,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      nixos-envy = nixpkgs.lib.nixosSystem {
+      nixos-fax = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
@@ -70,10 +70,10 @@
           dev
           gnome
           locale
-          amd
+          nvidia
           office
-          gaming
-          android
+          #gaming
+          #android
           #self.overlays
           #declerativeHome
           #./modules/gnome.nix
@@ -85,7 +85,7 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
+      "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = with self.homeManagerModules; [
