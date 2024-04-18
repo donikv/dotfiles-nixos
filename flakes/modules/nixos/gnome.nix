@@ -51,8 +51,8 @@
     screen-rotate
     pkgs.gjs
     pkgs.transmission-gtk
-	  pkgs.gnome.gnome-terminal
-	  pkgs.gnome.evince
+    pkgs.gnome.gnome-terminal
+    pkgs.gnome.evince
     pkgs.gnome.gnome-tweaks
     #pkgs.evtest
     #pkgs.libinput

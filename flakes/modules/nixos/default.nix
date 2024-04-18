@@ -11,4 +11,5 @@
   gaming = import ./gaming.nix;
   office = import ./office.nix;
   android = import ./android.nix;
+  nvidia = import ./nvidia.nix;
 }
