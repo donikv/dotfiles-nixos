@@ -165,6 +165,10 @@
       PasswordAuthentication = true;
     };
   };
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
 
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
