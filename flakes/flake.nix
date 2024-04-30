@@ -12,8 +12,11 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -92,6 +95,7 @@
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          inputs.plasma-manager.homeManagerModules.plasma-manager
           #gnome-config
           plasma-config
         ];
