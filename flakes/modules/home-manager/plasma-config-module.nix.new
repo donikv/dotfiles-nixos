@@ -1,28 +1,33 @@
 {pkgs ? import <nixpkgs> { }, plasma-manager, ...}: {
-
-  # qt = {
-  #   enable = true;
-  #   platformTheme = "qtct";
-  #   style.name = "kvantum";
-  # };
-  
-  # xdg.configFile = {
-  #   "Kvantum/ArcDark".source = "${pkgs.arc-kde-theme}/share/Kvantum/ArcDark";
-  #   "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=ArcDark";
-  # };
-  # imports = [
-  #   plasma-manager.homeManagerModules.plasma-manager
-  # ];
+  home.stateVersion = "23.11";
 
   programs.plasma = {
     enable = true;
+
+    #
+    # Some high-level settings:
+    #
     workspace = {
       clickItemTo = "select";
-      lookAndFeel = "org.kde.breezetwilight.desktop";
+      lookAndFeel = "org.kde.breezedark.desktop";
       cursorTheme = "Bibata-Modern-Ice";
-      iconTheme = "Papirus";
+      iconTheme = "Papirus-Dark";
       wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920.png";
     };
+
+    hotkeys.commands."launch-konsole" = {
+      name = "Launch Konsole";
+      key = "Meta+Alt+K";
+      command = "konsole";
+    };
+
+    fonts = {
+      general = {
+        family = "JetBrains Mono";
+        pointSize = 12;
+      };
+    };
+
     panels = [
       # Windows-like panel at the bottom
       {
@@ -38,9 +43,6 @@
               General.launchers = [
                 "applications:org.kde.dolphin.desktop"
                 "applications:org.kde.konsole.desktop"
-                "applications:firefox.desktop"
-                "applications:code.desktop"
-                "applications:spotify.desktop"
               ];
             };
           }
@@ -48,6 +50,7 @@
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
         ];
+        hiding = "autohide";
       }
       # Global menu at the top
       {
@@ -58,6 +61,38 @@
         ];
       }
     ];
-  };
-}
 
+
+    #
+    # Some mid-level settings:
+    #
+    shortcuts = {
+      ksmserver = {
+        "Lock Session" = [ "Screensaver" "Meta+Ctrl+Alt+L" ];
+      };
+
+      kwin = {
+        "Expose" = "Meta+,";
+        "Switch Window Down" = "Meta+J";
+        "Switch Window Left" = "Meta+H";
+        "Switch Window Right" = "Meta+L";
+        "Switch Window Up" = "Meta+K";
+      };
+    };
+
+
+    #
+    # Some low-level settings:
+    #
+    configFile = {
+      "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
+      "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "SF";
+      "kwinrc"."Desktops"."Number" = {
+        value = 8;
+        # Forces kde to not change this value (even through the settings app).
+        immutable = true;
+      };
+    };
+  };
+
+}
