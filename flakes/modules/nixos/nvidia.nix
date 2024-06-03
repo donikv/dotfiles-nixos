@@ -19,7 +19,7 @@
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
@@ -39,5 +39,17 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    
+   prime = {
+     offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+	 # Make sure to use the correct Bus ID values for your system!
+	 #intelBusId = "0@0:2:0";
+  # #nvidiaBusId = "1@8:0:0";
+   intelBusId = "PCI:0:2:0";
+   nvidiaBusId = "PCI:8:0:0";
+  };
   };
 }
