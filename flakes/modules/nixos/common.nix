@@ -10,7 +10,6 @@
   spotify
   sioyek
   write_stylus
-  libsForQt5.kate
   cups
   home-manager
   evtest
@@ -22,7 +21,6 @@
   libsForQt5.okular
   libsForQt5.kdeconnect-kde
   pkgs.unstable.super-productivity
-  webex
   ];
   
   services.tailscale.enable = true;
