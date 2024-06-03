@@ -6,7 +6,6 @@
   common = import ./common.nix;
   dev = import ./dev.nix;
   gnome = import ./gnome.nix;
-  plasma = import ./plasma.nix;
   amd = import ./amd.nix;
   locale = import ./locale.nix;
   gaming = import ./gaming.nix;
