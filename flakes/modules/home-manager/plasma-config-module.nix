@@ -27,8 +27,14 @@
       # Windows-like panel at the bottom
       {
         location = "bottom";
+        height = 60;
         widgets = [
-          "org.kde.plasma.kickoff"
+          {
+            name = "org.kde.plasma.kickoff";
+            config = {
+              General.icon = "nix-snowflake-white";
+            };
+          }
           # We can also configure the widgets. For example if you want to pin
           # konsole and dolphin to the task-launcher the following widget will
           # have that.
@@ -58,6 +64,21 @@
         ];
       }
     ];
+    configFile = {
+      baloofilerc."Basic Settings"."Indexing-Enabled" = false;
+      kwinrc."org.kde.kdecoration2".ButtonsOnLeft = "SF";
+      kwinrc.Desktops.Number = {
+        value = 8;
+        # Forces kde to not change this value (even through the settings app).
+        immutable = true;
+      };
+      kscreenlockerrc = {
+        Greeter.WallpaperPlugin = "org.kde.potd";
+        # To use nested groups use / as a separator. In the below example,
+        # Provider will be added to [Greeter][Wallpaper][org.kde.potd][General].
+        "Greeter/Wallpaper/org.kde.potd/General".Provider = "bing";
+      };
+    };
   };
 }
 
