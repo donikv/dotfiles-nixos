@@ -112,11 +112,11 @@
     pulse.enable = true;
   };
   
-  services.libinput.enable = true;
-  services.libinput.touchpad.naturalScrolling = true;
-  services.libinput.touchpad.tapping = false;
-  services.libinput.touchpad.disableWhileTyping = true;
-  services.libinput.touchpad.horizontalScrolling = true;
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.naturalScrolling = true;
+  services.xserver.libinput.touchpad.tapping = false;
+  services.xserver.libinput.touchpad.disableWhileTyping = true;
+  services.xserver.libinput.touchpad.horizontalScrolling = true;
   services.xserver.modules = [ pkgs.xf86_input_wacom ];
   services.xserver.wacom.enable = true;
 
@@ -136,8 +136,8 @@
       extraGroups = ["networkmanager" "wheel" "docker"];
     };
   };
-  #services.xserver.displayManager.autoLogin.enable = true;
-  #services.xserver.displayManager.autoLogin.user = "donik";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "donik";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
