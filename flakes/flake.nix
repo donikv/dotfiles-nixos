@@ -68,7 +68,8 @@
           ./nixos/configuration.nix
           common
           dev
-          gnome
+          #gnome
+          plasma
           locale
           nvidia
           office
@@ -91,7 +92,8 @@
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          gnome-config
+          #gnome-config
+          plasma-config
         ];
       };
     };
