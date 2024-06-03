@@ -7,7 +7,7 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
 }
