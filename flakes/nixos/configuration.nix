@@ -77,7 +77,7 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "nixos-fax";
+  networking.hostName = "nixos-envy";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.kernelPackages = pkgs.linuxPackages_6_6;  
