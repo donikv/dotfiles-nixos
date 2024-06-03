@@ -28,9 +28,10 @@
             ];
 	    enabled-extensions = [
               "dash-to-dock@micxgx.gmail.com"
-	            "apps-menu@gnome-shell-extensions.gcampax.github.com"
-	            "appindicatorsupport@rgcjonas.gmail.com"
-	            "screen-rotate@shyzus.github.io"
+	      "apps-menu@gnome-shell-extensions.gcampax.github.com"
+	      "appindicatorsupport@rgcjonas.gmail.com"
+	      "screen-rotate@shyzus.github.io"
+	      #"no-overview@"
             ];
 
         };
