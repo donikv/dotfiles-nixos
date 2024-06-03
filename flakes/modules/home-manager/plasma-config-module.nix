@@ -13,28 +13,22 @@
   # imports = [
   #   plasma-manager.homeManagerModules.plasma-manager
   # ];
-
   programs.plasma = {
     enable = true;
+    overrideConfig = true;
     workspace = {
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezetwilight.desktop";
-      cursorTheme = "Bibata-Modern-Ice";
+      cursorTheme = "Numix-Cursor";
       iconTheme = "Papirus";
-      wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920.png";
+      wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Altai/contents/images/5120x2880.png";
     };
     panels = [
       # Windows-like panel at the bottom
       {
         location = "bottom";
-        height = 60;
+        height = 40;
         widgets = [
-          {
-            name = "org.kde.plasma.kickoff";
-            config = {
-              General.icon = "nix-snowflake-white";
-            };
-          }
           # We can also configure the widgets. For example if you want to pin
           # konsole and dolphin to the task-launcher the following widget will
           # have that.
@@ -43,9 +37,9 @@
             config = {
               General.launchers = [
                 "applications:org.kde.dolphin.desktop"
-                "applications:org.kde.konsole.desktop"
                 "applications:firefox.desktop"
-                "applications:code.desktop"
+                "applications:code.desktop"               
+                "applications:org.kde.konsole.desktop"
                 "applications:spotify.desktop"
               ];
             };
@@ -60,6 +54,12 @@
         location = "top";
         height = 26;
         widgets = [
+          {
+            name = "org.kde.plasma.kickoff";
+            config = {
+              General.icon = "nix-snowflake-white";
+            };
+          }
           "org.kde.plasma.appmenu"
         ];
       }
