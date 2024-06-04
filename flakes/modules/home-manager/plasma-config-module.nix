@@ -21,13 +21,14 @@
       lookAndFeel = "org.kde.breezetwilight.desktop";
       cursorTheme = "Numix-Cursor";
       iconTheme = "Papirus";
-      wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Altai/contents/images/5120x2880.png";
+      #wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Altai/contents/images/5120x2880.png";
     };
     panels = [
       # Windows-like panel at the bottom
       {
         location = "bottom";
         height = 40;
+        floating = true;
         widgets = [
           # We can also configure the widgets. For example if you want to pin
           # konsole and dolphin to the task-launcher the following widget will
@@ -53,6 +54,7 @@
       {
         location = "top";
         height = 26;
+        floating = true;
         widgets = [
           {
             name = "org.kde.plasma.kickoff";
