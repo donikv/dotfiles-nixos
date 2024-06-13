@@ -1,16 +1,5 @@
 {pkgs ? import <nixpkgs> { }, ...}: {
-  # Enable the X11 windowing system.
-  #services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
-  # services.xserver.displayManager.gdm.wayland = false;
- # gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
-
-
-  #home.sessionVariables.GTK_THEME = "palenight";
     dconf.settings = {
         "org/gnome/desktop/wm/preferences" = {
             button-layout = "close,minimize,maximize:";
@@ -28,10 +17,9 @@
             ];
 	    enabled-extensions = [
               "dash-to-dock@micxgx.gmail.com"
-	      "apps-menu@gnome-shell-extensions.gcampax.github.com"
-	      "appindicatorsupport@rgcjonas.gmail.com"
-	      "screen-rotate@shyzus.github.io"
-	      #"no-overview@"
+	            "apps-menu@gnome-shell-extensions.gcampax.github.com"
+	            "appindicatorsupport@rgcjonas.gmail.com"
+	            "screen-rotate@shyzus.github.io"
             ];
 
         };
@@ -77,14 +65,5 @@
         '';
       };
   };
- # environment.systemPackages = with pkgs.gnomeExtensions; [ 
- #   appindicator
- #   dash-to-dock
- #   screen-rotate
- #   pkgs.gjs
- #   #pkgs.evtest
- #   #pkgs.libinput
- # ];
- # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }
 

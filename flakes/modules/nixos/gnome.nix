@@ -5,13 +5,12 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs.gnomeExtensions; [ 
     appindicator
     dash-to-dock
     screen-rotate
-    no-overview
     pkgs.gjs
     pkgs.transmission-gtk
     pkgs.gnome.gnome-terminal

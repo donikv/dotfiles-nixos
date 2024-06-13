@@ -1,8 +1,8 @@
 { pkgs ? import <nixpkgs> {}, ...} :{
   environment.systemPackages = with pkgs; [
     python3
-    (unstable.vscode-with-extensions.override {
-    vscodeExtensions = with unstable.vscode-extensions; [
+    (vscode-with-extensions.override {
+    vscodeExtensions = with vscode-extensions; [
       bbenoist.nix
       ms-python.python
       ms-vscode-remote.remote-ssh
