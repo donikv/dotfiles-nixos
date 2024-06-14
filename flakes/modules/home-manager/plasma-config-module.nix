@@ -15,7 +15,7 @@
   # ];
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
     workspace = {
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezetwilight.desktop";

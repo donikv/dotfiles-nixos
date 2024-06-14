@@ -13,4 +13,5 @@
   office = import ./office.nix;
   android = import ./android.nix;
   nvidia = import ./nvidia.nix;
+  flatpak = import ./flatpak.nix;
 }

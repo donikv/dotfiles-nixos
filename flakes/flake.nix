@@ -23,12 +23,15 @@
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nix-flatpak,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -67,6 +70,7 @@
       nixos-fax = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = with self.nixosModules; [
+          nix-flatpak.nixosModules.nix-flatpak
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
           common
@@ -76,6 +80,7 @@
           locale
           nvidia
           office
+          flatpak
           #gaming
           #android
           #self.overlays
