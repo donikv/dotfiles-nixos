@@ -72,11 +72,13 @@
           common
           dev
           gnome
+          #i3
           locale
           amd
           office
           gaming
           android
+          fonts
           #self.overlays
           #declerativeHome
           #./modules/gnome.nix
@@ -95,6 +97,7 @@
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
           gnome-config
+          #i3-config
         ];
       };
     };

@@ -23,6 +23,7 @@
   libsForQt5.kdeconnect-kde
   pkgs.unstable.super-productivity
   webex
+  nerdfonts
   ];
   
   services.tailscale.enable = true;

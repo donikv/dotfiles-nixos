@@ -103,7 +103,8 @@
   hardware.firmware = [ pkgs.sof-firmware ]; 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
- 
+  services.blueman.enable = true; # enables the Bluetooth manager
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -111,6 +112,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
   
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
