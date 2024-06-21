@@ -24,6 +24,7 @@
   pkgs.unstable.super-productivity
   webex
   mission-center
+  nerdfonts
   ];
   
   services.tailscale.enable = true;

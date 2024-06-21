@@ -101,6 +101,9 @@
   hardware.pulseaudio.support32Bit = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.firmware = [ pkgs.sof-firmware ]; 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true; # enables the Bluetooth manager
  
   security.rtkit.enable = true;
   services.pipewire = {

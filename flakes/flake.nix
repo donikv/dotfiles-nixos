@@ -81,6 +81,7 @@
           nvidia
           office
           flatpak
+          fonts
           #gaming
           #android
           #self.overlays
