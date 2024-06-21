@@ -3,7 +3,7 @@
   services.flatpak.enable = true;
 
   services.flatpak.packages = [
-    "io.missioncenter.MissionCenter"
+    #"io.missioncenter.MissionCenter"
     { appId = "com.brave.Browser"; origin = "flathub";  }
   ];
 

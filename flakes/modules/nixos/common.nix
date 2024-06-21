@@ -23,6 +23,7 @@
   libsForQt5.kdeconnect-kde
   pkgs.unstable.super-productivity
   webex
+  mission-center
   ];
   
   services.tailscale.enable = true;

@@ -64,6 +64,7 @@
     enable = true;
     userName  = "donikv";
     userEmail = "donikv@gmail.com";
+    lfs.enable = true;
   };  
 
   # Nicely reload system units when changing configs
