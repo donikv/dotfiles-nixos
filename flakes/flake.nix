@@ -25,6 +25,13 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
@@ -32,6 +39,7 @@
     nixpkgs,
     home-manager,
     nix-flatpak,
+    hyprland,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -82,6 +90,7 @@
           office
           flatpak
           fonts
+          hyprland
           #gaming
           #android
           #self.overlays

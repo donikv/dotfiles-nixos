@@ -56,6 +56,10 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
+  programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
+  };
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
@@ -65,7 +69,7 @@
     userName  = "donikv";
     userEmail = "donikv@gmail.com";
     lfs.enable = true;
-  };  
+  }; 
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
