@@ -94,11 +94,11 @@
     homeConfigurations = {
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs hyprland;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          gnome-config
+          #gnome-config
           #i3-config
         ];
       };

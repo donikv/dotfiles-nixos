@@ -22,9 +22,13 @@
     ./programs
     ./scripts
     ./themes
+    #./gnome/gnome-config-module.nix
   ];
 
   home.packages = with pkgs; [
+    
+    bibata-cursors
+
     #utils - copied from hyprland git repo
     ranger
     wlr-randr
@@ -42,7 +46,7 @@
 
     #misc 
     cava
-    neovim
+    #neovim
     nano
     rofi
     nitch
@@ -53,7 +57,7 @@
     pamixer
     mpc-cli
     tty-clock
-    exa
+    eza
     btop
     tokyo-night-gtk
   ];

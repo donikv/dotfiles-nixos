@@ -13,8 +13,7 @@
   #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
-    nvidiaPatches = true;
+    systemd.enable = true;
     extraConfig = ''
 
     # Monitor
@@ -47,7 +46,7 @@
         follow_mouse = 1
 
         touchpad {
-            natural_scroll = false
+            natural_scroll = true
         }
 
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
