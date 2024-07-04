@@ -7,6 +7,7 @@
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
@@ -29,6 +30,7 @@
     self,
     nixpkgs,
     home-manager,
+    hyprland,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,6 +71,7 @@
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+          hyprland.nixosModules.default
           common
           dev
           gnome
@@ -89,7 +92,6 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};

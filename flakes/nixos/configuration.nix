@@ -22,6 +22,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ../hosts/envy
     #../modules/nixos/common.nix
     #../modules/nixos/gnome.nix
     #../modules/nixos/dev.nix
@@ -201,6 +202,12 @@
     ];
     dates = "02:00";
     randomizedDelaySec = "45min";
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

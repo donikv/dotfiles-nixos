@@ -19,6 +19,43 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #./gnome-config-module.nix
+    ./programs
+    ./scripts
+    ./themes
+  ];
+
+  home.packages = with pkgs; [
+    #utils - copied from hyprland git repo
+    ranger
+    wlr-randr
+    git
+    rustup
+    gnumake
+    catimg
+    curl
+    appimage-run
+    xflux
+    dunst
+    pavucontrol
+    sqlite
+    neofetch
+
+    #misc 
+    cava
+    neovim
+    nano
+    rofi
+    nitch
+    wget
+    grim
+    slurp
+    wl-clipboard
+    pamixer
+    mpc-cli
+    tty-clock
+    exa
+    btop
+    tokyo-night-gtk
   ];
 
   nixpkgs = {
