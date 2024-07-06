@@ -7,6 +7,9 @@ let
   cool-retro-term-zsh = pkgs.writeShellScriptBin "cool-retro-term-zsh" ''
     cool-retro-term -e zsh
   '';
+  start-terminal = pkgs.writeShellScriptBin "start-terminal" ''
+    neofetch && zsh
+  '';
     rofi1 = pkgs.writeShellScriptBin "rofi1" ''
     ~/.config/rofi/launchers/type-1/launcher.sh
   '';
@@ -41,6 +44,7 @@ in
     cava-internal
     wallpaper_random
     default_wall
+    start-terminal
   ];
 
   home.file."Images/wallpapers/JWST.jpg" = { source = ../wallpapers/JWST.jpg; };

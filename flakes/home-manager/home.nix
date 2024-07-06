@@ -23,10 +23,11 @@
     ./themes
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; ([
     
     bibata-cursors
     kitty
+    gedit
 
     #utils - copied from hyprland git repo
     ranger
@@ -60,7 +61,12 @@
     eza
     btop
     tokyo-night-gtk
-  ];
+  ]) ++ (with pkgs.gnome; [ 
+    nautilus
+    zenity
+    gnome-tweaks
+    eog
+  ]);
 
 
   dconf.settings = {
@@ -117,6 +123,7 @@
     userName  = "donikv";
     userEmail = "donikv@gmail.com";
   };  
+  #programs.light.enable = true; 
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

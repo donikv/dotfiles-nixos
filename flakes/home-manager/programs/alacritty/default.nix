@@ -29,7 +29,7 @@
         };
       };
       shell = {
-        program = "zsh";
+        program = "start-terminal";
       };
     };
   };

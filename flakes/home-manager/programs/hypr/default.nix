@@ -8,8 +8,9 @@
   home.packages = with pkgs; [ 
     waybar
     swww
+    brightnessctl
   ];
-  
+
   #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -135,6 +136,7 @@
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
     bind = $mainMod, F, exec, nautilus
+    bind = $mainMod, C, exec, code
     bind = $mainMod, V, togglefloating,
     bind = $mainMod, w, exec, wofi --show drun
     bind = $mainMod, R, exec, rofiWindow
@@ -149,8 +151,8 @@
 
     # Functional keybinds
     bind =,XF86AudioMicMute,exec,pamixer --default-source -t
-    bind =,XF86MonBrightnessDown,exec,light -U 20
-    bind =,XF86MonBrightnessUp,exec,light -A 20
+    bind =,XF86MonBrightnessDown,exec,brightnessctl set 5%-
+    bind =,XF86MonBrightnessUp,exec,brightnessctl set 5%+
     bind =,XF86AudioMute,exec,pamixer -t
     bind =,XF86AudioLowerVolume,exec,pamixer -d 10
     bind =,XF86AudioRaiseVolume,exec,pamixer -i 10
