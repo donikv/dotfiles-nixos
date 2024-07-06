@@ -91,9 +91,15 @@
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb.layout = "us, hr";
     xkb.variant = "";
   };
+  services.displayManager.sddm.wayland.enable = true;
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -170,10 +176,10 @@
       PasswordAuthentication = true;
     };
   };
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   enableNvidia = true;
+  # };
 
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];

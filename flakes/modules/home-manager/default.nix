@@ -4,6 +4,6 @@
   # List your module files here
   # my-module = import ./my-module.nix;
   gnome-config = import ./gnome-config-module.nix;
-  plasma-config = import ./plasma-config-module.nix;
-  i3-config = import ./i3-config.nix;
+  #plasma-config = import ./plasma-config-module.nix;
+  #i3-config = import ./i3-config.nix;
 }

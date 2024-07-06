@@ -16,10 +16,10 @@
 
       font = {
         normal = {
-          family = "Hack";
+          family = "jetbrains mono nerd font";
           style = "Medium";
         };
-        size = 12;
+        size = 14;
       };
 
       window = {
@@ -29,7 +29,7 @@
         };
       };
       shell = {
-        program = "/usr/bin/env zsh";
+        program = "zsh";
       };
     };
   };

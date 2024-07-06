@@ -18,16 +18,15 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    #./gnome-config-module.nix
     ./programs
     ./scripts
     ./themes
-    #./gnome/gnome-config-module.nix
   ];
 
   home.packages = with pkgs; [
     
     bibata-cursors
+    kitty
 
     #utils - copied from hyprland git repo
     ranger
@@ -48,7 +47,8 @@
     cava
     #neovim
     nano
-    rofi
+    #rofi-wayland
+    wofi
     nitch
     wget
     grim
@@ -61,6 +61,17 @@
     btop
     tokyo-night-gtk
   ];
+
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Tokyonight-Dark-B-LB";
+    };
+  };
 
   nixpkgs = {
     # You can add overlays here

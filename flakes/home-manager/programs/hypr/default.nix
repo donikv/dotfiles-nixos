@@ -17,11 +17,12 @@
     extraConfig = ''
 
     # Monitor
-    monitor=DP-1,1920x1080@60,auto,1
+    monitor=eDP-1,1920x1080@60,0x1440,1
+    monitor=DP-1,2560x1440@59.95,0x0,1
 
     # Fix slow startup
-    exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-    exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 
+    #exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    #exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 
 
     # Autostart
 
@@ -37,7 +38,7 @@
 
     # Input config
     input {
-        kb_layout = br,us
+        kb_layout = us, hr
         kb_variant =
         kb_model =
         kb_options =
@@ -47,6 +48,7 @@
 
         touchpad {
             natural_scroll = true
+            clickfinger_behavior = 1
         }
 
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
@@ -66,10 +68,10 @@
     decoration {
 
         rounding = 10
-        blur = true
-        blur_size = 3
-        blur_passes = 1
-        blur_new_optimizations = true
+        #blur = true
+        #blur_size = 3
+        #blur_passes = 1
+        #blur_new_optimizations = true
 
         drop_shadow = true
         shadow_range = 4
@@ -94,12 +96,12 @@
         preserve_split = yes
     }
 
-    master {
-        new_is_master = yes
-    }
+    #master {
+    #    new_is_master = yes
+    #}
 
     gestures {
-        workspace_swipe = false
+        workspace_swipe = true
     }
 
     # Example windowrule v1
@@ -111,10 +113,15 @@
     windowrule=float,^(pavucontrol)$
     windowrule=center,^(kitty)$
     windowrule=float,^(blueman-manager)$
+    windowrule=center,^(blueman-manager)$
     windowrule=size 600 500,^(kitty)$
+    windowrule=size 600 500,^(blueman-manager)$
     windowrule=size 934 525,^(mpv)$
     windowrule=float,^(mpv)$
     windowrule=center,^(mpv)$
+    windowrule=float,^(rofi)$
+    windowrulev2=float,class:^(rofi)$,title:^(powermenu)$
+    windowrulev2=size 600 500,class:^(rofi)$,title:^(powermenu)$
     #windowrule=pin,^(firefox)$
 
     $mainMod = SUPER
@@ -123,7 +130,7 @@
 
     #bind = $mainMod, RETURN, exec, cool-retro-term-zsh
     bind = $mainMod, RETURN, exec, kitty
-    bind = $mainMod, B, exec, opera --no-sandbox
+    bind = $mainMod, B, exec, blueman-manager
     bind = $mainMod, L, exec, firefox 
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
@@ -135,7 +142,7 @@
     bind = $mainMod, J, togglesplit, # dwindle
 
     # Switch Keyboard Layouts
-    bind = $mainMod, SPACE, exec, hyprctl switchxkblayout teclado-gamer-husky-blizzard next
+    #bind = $mainMod, SPACE, exec, hyprctl switchxkblayout teclado-gamer-husky-blizzard next
 
     bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
     bind = SHIFT, Print, exec, grim -g "$(slurp)"

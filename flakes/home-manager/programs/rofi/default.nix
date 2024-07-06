@@ -4,7 +4,14 @@
     enable = true;
     terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
     theme = ./theme.rasi;
+    package = pkgs.rofi-wayland;
   };
+  
+  home.packages = with pkgs; [
+    (writeShellScriptBin "powermenu" (builtins.readFile ./scripts/rofi-power-menu))
+  ];
+  home.file.".config/rofi/rofi.png" = { source = ./images/nixos.png; };
+#   home.file.".config/rofi/powermenu/type-3/powermenu.sh".mode = "777";
 
     home.file.".config/rofi/theme.rasi".text = ''
 
@@ -23,13 +30,22 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
+    background:                  #1E1D2FFF;
+    background-alt:              #282839FF;
+    foreground:                  #D9E0EEFF;
+    selected:                    #7AA2F7FF;
+    active:                      #ABE9B3FF;
+    urgent:                      #F28FADFF;
+}
+/** {
+    font:                        "JetBrains Mono Nerd Font 10";
     background:                  #201A41;
     background-alt:              #392684;
     foreground:                  #FFFFFF;
     selected:                    #F801E8;
     active:                      #00CCF5;
     urgent:                      #8D0083;
-}
+}*/
 
 /*****----- Main Window -----*****/
 window {

@@ -7,5 +7,8 @@
     ./rofi
     ./waybar
     ./zsh
+    #./gnome
+    #./i3
+    #./plasma
   ];
 }

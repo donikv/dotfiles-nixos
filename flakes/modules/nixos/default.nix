@@ -15,4 +15,5 @@
   android = import ./android.nix;
   nvidia = import ./nvidia.nix;
   fonts = import ./fonts.nix;
+  hypr = import ./hypr.nix;
 }

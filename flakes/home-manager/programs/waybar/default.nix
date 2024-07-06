@@ -149,17 +149,18 @@
           "clock"
         ];
         modules-right = [
+          "tray"
           "pulseaudio"
           "backlight"
           "memory"
           "cpu"
+          "battery"
           "network"
           "custom/powermenu"
-          "tray"
         ];
         "custom/launcher" = {
           "format" = " ";
-          "on-click" = "pkill rofi || rofi2";
+          "on-click" = "pkill rofi || rofiWindow";
           "on-click-middle" = "exec default_wall";
           "on-click-right" = "exec wallpaper_random";
           "tooltip" = false;
@@ -178,9 +179,22 @@
           "on-click" = "pamixer -t";
           "tooltip" = false;
         };
+        "battery" = {
+        	"interval" = 1;
+        	"states" = {
+        		"warning" = 30;
+        		"critical" = 15;
+        	};
+        	"format" = "{icon} {capacity}% ";
+        	"format-icons" = {
+            "default" = ["" "" "" "" ""];
+          }; 
+        	#"max-length"= 25;
+          "tooltip" = false;
+        };
         "clock" = {
           "interval" = 1;
-          "format" = "{:%I:%M %p  %A %b %d}";
+          "format" = "{:%H:%M  %A %b %d}";
           "tooltip" = true;
           "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
         };
@@ -219,7 +233,7 @@
         };
         "custom/powermenu" = {
           "format" = "";
-          "on-click" = "pkill rofi || ~/.config/rofi/powermenu/type-3/powermenu.sh";
+          "on-click" = "pkill rofi || rofi -window-title powermenu -show p -modi p:'powermenu --symbols-font \"Symbols Nerd Font Mono\"' -font \"JetBrains Mono NF 16\" -theme ~/.config/rofi/theme.rasi -theme-str 'window {width: 32em;location: northeast;anchor: northeast;} listview {lines: 6;}'"; #~/.config/rofi/powermenu/type-3/powermenu.sh";
           "tooltip" = false;
         };
         "tray" = {

@@ -5,7 +5,7 @@
     sessionVariables = {
     EDITOR = "lvim";
     BROWSER = "firefox";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
     #GBM_BACKEND= "nvidia-drm";
     #__GLX_VENDOR_LIBRARY_NAME= "nvidia";
     #LIBVA_DRIVER_NAME= "nvidia"; # hardware acceleration
