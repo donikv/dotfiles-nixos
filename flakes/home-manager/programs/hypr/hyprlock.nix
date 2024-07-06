@@ -4,7 +4,7 @@
     ./hyprland-environment.nix
   ];
 
-  home.file."Images/lock/face.jpg" = { source = ../wallpapers/face.jpg; };
+  home.file."Images/lock/face.png" = { source = ../../wallpapers/vector3square.png; };
 
   home.file.".config/hypr/macchiato.conf".text = ''
     $rosewater = rgb(f4dbd6)
@@ -151,7 +151,7 @@
     # USER AVATAR
     image {
         monitor = 
-        path = $HOME/Images/lock/face.jpg
+        path = $HOME/Images/lock/face.png
         size = 350
         border_color = $accent
         rounding = -1

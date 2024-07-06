@@ -4,6 +4,7 @@
   imports = [ 
     ./hyprland-environment.nix
     ./hypridle.nix
+    ./hyprlock.nix
   ];
 
   home.packages = with pkgs; [ 
@@ -33,7 +34,8 @@
     exec-once = hyprctl setcursor Bibata-Modern-Classic 24
     exec-once = dunst
     exec-once = hypridle
-    exec-once = maestral
+    exec-once = maestral start
+    exec-once = steam
 
     source = /home/donik/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
