@@ -34,6 +34,7 @@ rofi \
           swww img ~/Images/wallpapers/sharing_space.jpg  --transition-type simple
     fi
   '';
+  switch_lang = pkgs.writeShellScriptBin "switch_lang" (builtins.readFile ./scripts/switch-lang.sh);
 in
 {
   home.packages = with pkgs; [
@@ -45,6 +46,7 @@ in
     wallpaper_random
     default_wall
     start-terminal
+    switch_lang
   ];
 
   home.file."Images/wallpapers/JWST.jpg" = { source = ../wallpapers/JWST.jpg; };

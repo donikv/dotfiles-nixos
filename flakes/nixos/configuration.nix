@@ -106,7 +106,9 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.pulseaudio.support32Bit = true;
+  #hardware.pulseaudio.systemWide = true; # enables system-wide PulseAudio
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   hardware.firmware = [ pkgs.sof-firmware ]; 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
@@ -120,7 +122,26 @@
     pulse.enable = true;
   };
 
-  
+    services.mpd = {
+    enable = true;
+    musicDirectory = "/home/donik/Music";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "My PipeWire Output"
+      }
+    '';
+    #user = "donik";
+    # Optional:
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
+  services.mpd.user = "donik";
+  systemd.services.mpd.environment = {
+      # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+      XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.donik.uid}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
+  };
+
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
   services.libinput.touchpad.tapping = false;

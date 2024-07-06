@@ -28,6 +28,7 @@
     bibata-cursors
     kitty
     gedit
+    vlc
 
     #utils - copied from hyprland git repo
     ranger
@@ -43,9 +44,12 @@
     pavucontrol
     sqlite
     neofetch
+    networkmanagerapplet
+    playerctl
 
     #misc 
     cava
+    jq
     #neovim
     nano
     #rofi-wayland

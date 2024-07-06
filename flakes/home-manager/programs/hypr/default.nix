@@ -35,7 +35,8 @@
     exec-once = dunst
     exec-once = hypridle
     exec-once = maestral start
-    exec-once = steam
+    exec-once = hyprctl dispatch exec [workspace 9 silent] steam
+    exec-once = hyprctl dispatch exec [workspace 8 silent] spotify
 
     source = /home/donik/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
@@ -151,7 +152,7 @@
     bind = $mainMod, J, togglesplit, # dwindle
 
     # Switch Keyboard Layouts
-    #bind = $mainMod, SPACE, exec, hyprctl switchxkblayout teclado-gamer-husky-blizzard next
+    #bind = $mainMod, SPACE, exec, rofiWindow
 
     bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
     bind = SHIFT, Print, exec, grim -g "$(slurp)"
@@ -165,6 +166,8 @@
     bind =,XF86AudioRaiseVolume,exec,pamixer -i 10
     bind =,XF86AudioPlay,exec,playerctl play-pause
     bind =,XF86AudioPause,exec,playerctl play-pause
+    bind =,XF86AudioNext,exec, playerctl next
+    bind =,XF86AudioPrev,exec, playerctl previous
 
     # to switch between windows in a floating workspace
     bind = SUPER,Tab,cyclenext,
@@ -208,6 +211,13 @@
     bindm = $mainMod, mouse:272, movewindow
     bindm = $mainMod, mouse:273, resizewindow
     bindm = ALT, mouse:272, resizewindow
+
+    workspace = 1, on-created-empty:exec, alacritty
+    workspace = 2, on-created-empty:exec, firefox
+    workspace = 3, on-created-empty:exec, code
+    workspace = 4, on-created-empty:exec, nautilus
+    workspace = 8, on-created-empty:exec, spotify
+    workspace = 9, on-created-empty:exec, steam
         '';
   };
 
