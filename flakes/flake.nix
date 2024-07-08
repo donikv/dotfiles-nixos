@@ -24,6 +24,7 @@
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -31,6 +32,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    catppuccin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -102,6 +104,7 @@
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          catppuccin.homeManagerModules.catppuccin
           #gnome-config
           #i3-config
         ];

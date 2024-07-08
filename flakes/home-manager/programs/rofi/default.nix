@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
-    theme = ./theme.rasi;
+    #theme = ./theme.rasi;
     package = pkgs.rofi-wayland;
   };
   
@@ -13,7 +13,7 @@
   home.file.".config/rofi/rofi.png" = { source = ./images/nixos.png; };
 #   home.file.".config/rofi/powermenu/type-3/powermenu.sh".mode = "777";
 
-    home.file.".config/rofi/theme.rasi".text = ''
+  home.file.".config/rofi/theme.rasi".text = ''
 
 /*****----- Configuration -----*****/
 configuration {

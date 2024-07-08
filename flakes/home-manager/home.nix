@@ -80,7 +80,7 @@
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Tokyonight-Dark-B-LB";
+      name = "catppuccin-macchiato-teal-standard+default";
     };
   };
 

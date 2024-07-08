@@ -68,7 +68,7 @@
          #workspaces button.urgent {
                  color: rgb(26, 24, 38);
                }
-         #workspaces button:hover {
+         /* #workspaces button:hover {
                  background-color: rgb(248, 189, 150);
                  color: rgb(26, 24, 38);
                }
@@ -77,7 +77,7 @@
                }
                tooltip label {
                  color: rgb(217, 224, 238);
-               }
+               } */
          #custom-launcher {
                  font-size: 20px;
                  padding-left: 8px;
@@ -111,7 +111,7 @@
          #hyprland-language {
                  color: rgb(150, 205, 251);
                }
-         #temperature {
+         #temperature, #battery, #hyprland-language {
                  color: rgb(150, 205, 251);
                }
          #backlight {

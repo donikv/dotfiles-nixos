@@ -2,7 +2,9 @@
 {
     imports = [
       ./cava
-      ./tokyo
-      #./Catppuccin-Macchiato-Teal
+      #./tokyo
+      #./catppuccin
+      #./arc
+      ./Catppuccin-Macchiato-Teal
     ];
 }

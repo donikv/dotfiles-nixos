@@ -37,7 +37,7 @@ services.dunst = {
         follow = "mouse";
         font = "Source Sans Pro 10";
         format = "<b>%s</b>\\n%b"; #format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
-        frame_color = "#232323";
+        #frame_color = "#232323";
         frame_width = 1;
         offset = "15x15";
         horizontal_padding = 10;
@@ -59,18 +59,18 @@ services.dunst = {
 
       fullscreen_delay_everything = {fullscreen = "delay";};
 
-      urgency_critical = {
-        background = "#d64e4e";
-        foreground = "#f0e0e0";
-      };
-      urgency_low = {
-        background = "#232323";
-        foreground = "#2596be";
-      };
-      urgency_normal = {
-        background = "#1e1e2a";
-        foreground = "#2596be";
-      };
+      # urgency_critical = {
+      #   background = "#d64e4e";
+      #   foreground = "#f0e0e0";
+      # };
+      # urgency_low = {
+      #   background = "#232323";
+      #   foreground = "#2596be";
+      # };
+      # urgency_normal = {
+      #   background = "#1e1e2a";
+      #   foreground = "#2596be";
+      # };
     };
   };
 }
