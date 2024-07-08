@@ -29,6 +29,7 @@
     kitty
     gedit
     vlc
+    obsidian
 
     #utils - copied from hyprland git repo
     ranger

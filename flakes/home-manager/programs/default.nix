@@ -7,7 +7,6 @@
     ./rofi
     ./waybar
     ./zsh
-    #./mpd
     #./gnome
     #./i3
     #./plasma

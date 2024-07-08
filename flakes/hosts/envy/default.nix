@@ -3,6 +3,7 @@
   imports = [
     ./fonts
     ./virtualisation
+    ./syncthing
   ];
 
 #   programs.regreet.enable = true;

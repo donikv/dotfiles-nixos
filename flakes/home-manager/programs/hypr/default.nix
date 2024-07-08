@@ -35,8 +35,11 @@
     exec-once = dunst
     exec-once = hypridle
     exec-once = maestral start
-    exec-once = hyprctl dispatch exec [workspace 9 silent] steam
+    #exec-once = hyprctl dispatch exec [workspace 9 silent] steam
     exec-once = hyprctl dispatch exec [workspace 8 silent] spotify
+    exec-once = hyprctl dispatch exec [workspace 1 silent] alacritty
+    exec-once = hyprctl dispatch exec [workspace 2 silent] firefox
+    exec-once = hyprctl dispatch exec [workspace 3 silent] code
 
     source = /home/donik/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
@@ -217,7 +220,7 @@
     workspace = 3, on-created-empty:exec, code
     workspace = 4, on-created-empty:exec, nautilus
     workspace = 8, on-created-empty:exec, spotify
-    workspace = 9, on-created-empty:exec, steam
+    #workspace = 9, on-created-empty:exec, steam
         '';
   };
 
