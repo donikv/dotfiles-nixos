@@ -25,6 +25,7 @@
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
+    distant.url = "github:myclevorname/distant"; # Temporary
   };
 
   outputs = {
@@ -33,6 +34,7 @@
     home-manager,
     hyprland,
     catppuccin,
+    distant,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -41,8 +43,8 @@
       "aarch64-linux"
       "i686-linux"
       "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
+      #"aarch64-darwin"
+      #"x86_64-darwin"
     ];
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
@@ -84,6 +86,7 @@
           amd
           office
           gaming
+          #distant.packages
           #android
           #fonts
           #self.overlays
@@ -98,7 +101,7 @@
     homeConfigurations = {
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs hyprland;};
+        extraSpecialArgs = {inherit inputs outputs hyprland distant;};
         #useGlobalPkgs = true; # Use the same packages as the nixos-envy system
         #useUserPackages = true; # Use the user's packages
         modules = with self.homeManagerModules; [

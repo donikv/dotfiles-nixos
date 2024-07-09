@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, distant, ... }: {
   programs.neovim.enable = true;
 
   home.packages = with pkgs; [
-    python312Packages.flake8
-    python312Packages.black
+    distant
+    nodejs_22
   ];
 
 
@@ -26,8 +26,10 @@
     vim-fugitive
     auto-pairs
     copilot-vim
+    distant-nvim
 
     #COC
+    coc-nvim
     coc-spell-checker
     coc-prettier
     coc-git
@@ -36,4 +38,18 @@
     coc-docker
     coc-yaml
   ];
+  programs.neovim = {
+    withPython3 = true;
+    extraPackages = with pkgs; [
+      (python3.withPackages (ps: with ps; [
+        black
+        flake8
+      ]))
+    ];
+    extraPython3Packages = (ps: with ps; [
+      jedi
+    ]);
+  };
+
+  home.file.".config/nvim/coc-settings.json".text = builtins.readFile ./config/coc-settings.json;
 }

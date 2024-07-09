@@ -10,6 +10,7 @@
       arrterian.nix-env-selector
       github.copilot
       github.copilot-chat
+      arcticicestudio.nord-visual-studio-code
     ];
     })
   ];
