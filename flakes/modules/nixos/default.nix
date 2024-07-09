@@ -3,17 +3,17 @@
 {
   # List your module files here
   # my-module = import ./my-module.nix;
-  common = import ./common.nix;
-  dev = import ./dev.nix;
-  gnome = import ./gnome.nix;
-  plasma = import ./plasma.nix;
-  i3 = import ./i3.nix;
-  amd = import ./amd.nix;
-  locale = import ./locale.nix;
-  gaming = import ./gaming.nix;
-  office = import ./office.nix;
-  android = import ./android.nix;
-  nvidia = import ./nvidia.nix;
-  fonts = import ./fonts.nix;
-  hypr = import ./hypr.nix;
+  # common = import ./common.nix;
+  # dev = import ./dev.nix;
+  # gnome = import ./gnome.nix;
+  # plasma = import ./plasma.nix;
+  # i3 = import ./i3.nix;
+  # amd = import ./amd.nix;
+  # locale = import ./locale.nix;
+  # gaming = import ./gaming.nix;
+  # office = import ./office.nix;
+  # android = import ./android.nix;
+  # nvidia = import ./nvidia.nix;
+  # fonts = import ./fonts.nix;
+  # hypr = import ./hypr.nix;
 }

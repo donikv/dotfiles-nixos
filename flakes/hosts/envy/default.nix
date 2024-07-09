@@ -8,6 +8,7 @@
     ./hypr
     ./amd
     ./locale
+    ./gaming
   ];
 
 #   programs.regreet.enable = true;
@@ -33,8 +34,22 @@
 
   programs.dconf.enable = true;
 
+  services.teamviewer.enable = true;
+  services.tailscale.enable = true;
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
   };
+
+  #NETWORKING FOR KDE CONNECT
+  networking.firewall = { 
+    enable = true;
+    allowedTCPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+    allowedUDPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+  };  
 }

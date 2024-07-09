@@ -76,8 +76,8 @@
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
           #hyprland.nixosModules.default
-          common
-          gaming
+          #common
+          #gaming
           #dev
           #gnome
           #plasma

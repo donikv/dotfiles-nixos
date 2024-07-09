@@ -96,17 +96,12 @@
     xkb.variant = "";
   };
   services.displayManager.sddm.wayland.enable = true;
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.pulseaudio.support32Bit = true;
-  #hardware.pulseaudio.systemWide = true; # enables system-wide PulseAudio
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   hardware.firmware = [ pkgs.sof-firmware ]; 
@@ -177,10 +172,6 @@
       PasswordAuthentication = true;
     };
   };
-  # virtualisation.docker = {
-  #   enable = true;
-  #   enableNvidia = true;
-  # };
 
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
