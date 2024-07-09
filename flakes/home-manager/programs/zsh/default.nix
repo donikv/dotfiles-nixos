@@ -9,6 +9,8 @@
                 theme = "refined";
                 plugins = [
                     "git"
+                    "git-flow"
+                    "colored-man-pages"                 
                 ];
             };
 

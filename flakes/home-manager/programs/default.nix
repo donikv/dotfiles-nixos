@@ -7,6 +7,7 @@
     ./rofi
     ./waybar
     ./zsh
+    ./neovim
     #./gnome
     #./i3
     #./plasma
