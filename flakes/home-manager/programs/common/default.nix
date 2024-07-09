@@ -19,5 +19,6 @@
   pkgs.unstable.super-productivity
   webex
   nerdfonts
+  teams-for-linux
   ]; 
 }
