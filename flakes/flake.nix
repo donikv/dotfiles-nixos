@@ -77,15 +77,15 @@
           ./nixos/configuration.nix
           #hyprland.nixosModules.default
           common
-          dev
-          gnome
-          #plasma
-          hypr
-          #i3
-          locale
-          amd
-          office
           gaming
+          #dev
+          #gnome
+          #plasma
+          #hypr
+          #i3
+          #locale
+          #amd
+          #office
           #distant.packages
           #android
           #fonts

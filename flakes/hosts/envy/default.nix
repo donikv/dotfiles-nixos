@@ -4,6 +4,10 @@
     ./fonts
     ./virtualisation
     ./syncthing
+    ./gnome
+    ./hypr
+    ./amd
+    ./locale
   ];
 
 #   programs.regreet.enable = true;

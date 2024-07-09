@@ -21,7 +21,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    ../hosts/envy/hardware-configuration.nix
     ../hosts/envy
     #../modules/nixos/common.nix
     #../modules/nixos/gnome.nix

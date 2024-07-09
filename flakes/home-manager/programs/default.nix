@@ -8,6 +8,7 @@
     ./waybar
     ./zsh
     ./neovim
+    ./visual-studio-code
     #./gnome
     #./i3
     #./plasma

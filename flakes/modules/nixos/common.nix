@@ -1,5 +1,4 @@
 {pkgs, ...} : {
-  services.teamviewer.enable = true;
   environment.systemPackages = with pkgs; [
   firefox
   #teamviewer
@@ -27,6 +26,7 @@
   ];
   
   services.tailscale.enable = true;
+  services.teamviewer.enable = true;
 
   #NETWORKING FOR KDE CONNECT
   networking.firewall = { 

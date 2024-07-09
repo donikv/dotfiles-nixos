@@ -25,12 +25,19 @@
 
   home.packages = with pkgs; ([
     
+    #general
     bibata-cursors
     kitty
     gedit
     vlc
     obsidian
     whatsapp-for-linux        
+
+    #office
+    libreoffice-qt
+    hunspell
+    hunspellDicts.uk_UA
+    hunspellDicts.th_TH
 
     #utils - copied from hyprland git repo
     ranger
