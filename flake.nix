@@ -70,14 +70,14 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       nixos-envy = nixpkgs.lib.nixosSystem {
-        specialArgs = {host = "envy"; inherit inputs outputs;};
+        specialArgs = {hn = "envy"; inherit inputs outputs;};
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
       };
       nixos-d159 = nixpkgs.lib.nixosSystem {
-        specialArgs = {host = "d159"; inherit inputs outputs;};
+        specialArgs = {hn = "d159"; inherit inputs outputs;};
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
@@ -90,7 +90,7 @@
     homeConfigurations = {
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {host = "envy"; inherit inputs outputs hyprland distant;};
+        extraSpecialArgs = {hn = "envy"; inherit inputs outputs hyprland distant;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
@@ -100,7 +100,7 @@
     };
       "donik@nixos-d159" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {host = "d159"; inherit inputs outputs hyprland distant;};
+        extraSpecialArgs = {hn = "d159"; inherit inputs outputs hyprland distant;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
