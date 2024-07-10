@@ -100,7 +100,7 @@
     };
       "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs hyprland distant; hostName = "fax";};
+        extraSpecialArgs = {inherit inputs outputs hyprland distant; hostName = "d159";};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
