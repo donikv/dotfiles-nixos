@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hn, ... }:
 {
   imports = [ 
-    ./hyprland-environment.nix
+    ./hyprland-environment-${hn}.nix
   ];
 
   home.file.".config/hypr/hypridle.conf".text = ''

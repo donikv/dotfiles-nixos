@@ -19,7 +19,7 @@
     workspace = {
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezetwilight.desktop";
-      cursorTheme = "Numix-Cursor";
+      cursor.theme = "Numix-Cursor";
       iconTheme = "Papirus";
       #wallpaper = "${pkgs.libsForQt5.plasma-workspace-wallpapers}/share/wallpapers/Altai/contents/images/5120x2880.png";
     };

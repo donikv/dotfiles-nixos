@@ -101,16 +101,18 @@
           catppuccin.homeManagerModules.catppuccin
         ];
       };
-    };
       "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {hn = "fax"; inherit inputs outputs hyprland distant;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          ./home-manager/programs/plasma
           catppuccin.homeManagerModules.catppuccin
+          
+          inputs.plasma-manager.homeManagerModules.plasma-manager
+          ./home-manager/programs/plasma
         ];
       };
+    };
   };
 }

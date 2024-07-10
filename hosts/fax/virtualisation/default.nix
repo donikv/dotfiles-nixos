@@ -3,7 +3,7 @@
 {
   virtualisation = {
     docker.enable = true;
-    #docker.enableNvidia = true;
+    docker.enableNvidia = true;
   };
 
   users.groups.docker.members = [ "donik" ];

@@ -1,8 +1,7 @@
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, hn, ... }:
 {
   imports = [ 
-    ./hyprland-environment.nix
+    ./hyprland-environment-${hn}.nix
     ./hypridle.nix
     ./hyprlock.nix
   ];
