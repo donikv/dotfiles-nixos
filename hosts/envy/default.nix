@@ -9,6 +9,7 @@
     ./amd
     ./locale
     ./gaming
+    #./android
   ];
 
 #   programs.regreet.enable = true;
