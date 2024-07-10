@@ -9,7 +9,7 @@
     ./nvidia
     ./locale
     ./gaming
-    ./flakes
+    ./flatpak
   ];
 
 #   programs.regreet.enable = true;

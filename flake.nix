@@ -25,6 +25,8 @@
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     distant.url = "github:myclevorname/distant"; # Temporary
   };
 
@@ -34,6 +36,7 @@
     home-manager,
     hyprland,
     catppuccin,
+    nix-flatpak,
     distant,
     ...
   } @ inputs: let
@@ -76,9 +79,10 @@
           ./nixos/configuration.nix
         ];
       };
-      nixos-d159 = nixpkgs.lib.nixosSystem {
-        specialArgs = {hn = "d159"; inherit inputs outputs;};
+      nixos-fax = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "fax"; inherit inputs outputs;};
         modules = with self.nixosModules; [
+          nix-flatpak.nixosModules.nix-flatpak
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
@@ -98,9 +102,9 @@
         ];
       };
     };
-      "donik@nixos-d159" = home-manager.lib.homeManagerConfiguration {
+      "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "d159"; inherit inputs outputs hyprland distant;};
+        extraSpecialArgs = {hn = "fax"; inherit inputs outputs hyprland distant;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
