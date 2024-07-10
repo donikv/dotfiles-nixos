@@ -7,7 +7,7 @@
   config,
   pkgs,
   # Configuration
-  hostName,
+  host,
   ...
 }: {
   # You can import other NixOS modules here
@@ -23,8 +23,8 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ../hosts/${hostName}/hardware-configuration.nix
-    ../hosts/${hostName}
+    (../hosts + "/${host}/hardware-configuration.nix")
+    (../hosts + "/${host}")
     #../modules/nixos/common.nix
     #../modules/nixos/gnome.nix
     #../modules/nixos/dev.nix
@@ -80,8 +80,8 @@
 
   # FIXME: Add the rest of your current configuration
 
-  # TODO: Set your hostname
-  networking.hostName = "nixos-${hostName}";
+  # TODO: Set your host
+  networking.hostName = "nixos-${host}";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.kernelPackages = pkgs.linuxPackages_6_6;  
