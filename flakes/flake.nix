@@ -69,29 +69,18 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       nixos-envy = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs; hostName = "envy";};
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          #hyprland.nixosModules.default
-          #common
-          #gaming
-          #dev
-          #gnome
-          #plasma
-          #hypr
-          #i3
-          #locale
-          #amd
-          #office
-          #distant.packages
-          #android
-          #fonts
-          #self.overlays
-          #declerativeHome
-          #./modules/gnome.nix
+        ];
+      };
+      nixos-fax = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs; hostName = "fax";};
+        modules = with self.nixosModules; [
+          # > Our main nixos configuration file <
+          ./nixos/configuration.nix
         ];
       };
     };
@@ -101,17 +90,23 @@
     homeConfigurations = {
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs hyprland distant;};
-        #useGlobalPkgs = true; # Use the same packages as the nixos-envy system
-        #useUserPackages = true; # Use the user's packages
+        extraSpecialArgs = {inherit inputs outputs hyprland distant; hostName = "envy";};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
           catppuccin.homeManagerModules.catppuccin
-          #gnome-config
-          #i3-config
         ];
       };
     };
+      "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs hyprland distant; hostName = "fax";};
+        modules = with self.homeManagerModules; [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+          ./home-manager/programs/plasma
+          catppuccin.homeManagerModules.catppuccin
+        ];
+      };
   };
 }

@@ -6,6 +6,8 @@
   lib,
   config,
   pkgs,
+  # Configuration
+  hostName,
   ...
 }: {
   # You can import other NixOS modules here
@@ -21,8 +23,8 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ../hosts/envy/hardware-configuration.nix
-    ../hosts/envy
+    ../hosts/${hostName}/hardware-configuration.nix
+    ../hosts/${hostName}
     #../modules/nixos/common.nix
     #../modules/nixos/gnome.nix
     #../modules/nixos/dev.nix
@@ -79,7 +81,7 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "nixos-envy";
+  networking.hostName = "nixos-${hostName}";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.kernelPackages = pkgs.linuxPackages_6_6;  
