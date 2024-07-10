@@ -15,5 +15,5 @@
   nvidia = import ./nvidia.nix;
   flatpak = import ./flatpak.nix;
   fonts = import ./fonts.nix;
-  hyprland = import ./hyprland.nix;
+  hyprland-config = import ./hyprland.nix;
 }

@@ -8,6 +8,8 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    nerdfonts
+    meslo-lgs-nf
     (nerdfonts.override { fonts = [ "InconsolataLGC" "Noto" ]; })
   ];
 
