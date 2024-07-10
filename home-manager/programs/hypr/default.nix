@@ -23,6 +23,7 @@
     # Monitor
     monitor=eDP-1,1920x1080@60,0x1440,1
     monitor=DP-1,2560x1440@59.95,0x0,1
+    monitor=Unknown-1,disable
 
     # Fix slow startup
     #exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -42,7 +43,7 @@
 
     source = /home/donik/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
-    exec-once = swww init & sleep 0.5 && exec wallpaper_random
+    exec-once = swww-daemon & sleep 0.5 && exec default_wall #wallpaper_random
     # exec-once = wallpaper_random
 
     # Set en layout at startup

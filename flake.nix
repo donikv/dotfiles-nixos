@@ -109,8 +109,8 @@
           ./home-manager/home.nix
           catppuccin.homeManagerModules.catppuccin
           
-          inputs.plasma-manager.homeManagerModules.plasma-manager
-          ./home-manager/programs/plasma
+          # inputs.plasma-manager.homeManagerModules.plasma-manager
+          # ./home-manager/programs/plasma
         ];
       };
     };
