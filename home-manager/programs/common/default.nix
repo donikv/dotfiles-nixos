@@ -20,5 +20,6 @@
   webex
   nerdfonts
   teams-for-linux
+  zotero_7
   ]; 
 }
