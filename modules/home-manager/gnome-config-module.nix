@@ -5,7 +5,7 @@
             button-layout = "close,minimize,maximize:";
         };
         "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-default";
+            color-scheme = "prefer-dark";
         };
         "org/gnome/shell" = {
             favorite-apps = [
