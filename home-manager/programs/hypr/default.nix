@@ -153,6 +153,7 @@
     bind = $mainMod, R, exec, rofiWindow
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
+    bind = $mainMod, T, togglegroup,
 
     # Switch Keyboard Layouts
     #bind = $mainMod, SPACE, exec, rofiWindow
@@ -175,6 +176,7 @@
     # to switch between windows in a floating workspace
     bind = SUPER,Tab,cyclenext,
     bind = SUPER,Tab,bringactivetotop,
+    bind = SUPER CTRL,Tab,changegroupactive,f
 
     # Move focus with mainMod + arrow keys
     bind = $mainMod, left, movefocus, l
@@ -210,6 +212,17 @@
     bind = $mainMod, mouse_down, workspace, e+1
     bind = $mainMod, mouse_up, workspace, e-1
 
+    bind= $mainMod SHIFT, left, movewindow, l
+    bind= $mainMod SHIFT, right, movewindow, r
+    bind= $mainMod SHIFT, up, movewindow, u
+    bind= $mainMod SHIFT, down, movewindow, d
+  
+    bind= $mainMod CTRL, left, movewindoworgroup, l
+    bind= $mainMod CTRL, right, movewindoworgroup, r
+    bind= $mainMod CTRL, up, movewindoworgroup, u
+    bind= $mainMod CTRL, down, movewindoworgroup, d
+
+    
     # Move/resize windows with mainMod + LMB/RMB and dragging
     bindm = $mainMod, mouse:272, movewindow
     bindm = $mainMod, mouse:273, resizewindow

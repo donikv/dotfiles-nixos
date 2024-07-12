@@ -9,6 +9,7 @@
     ./amd
     ./locale
     ./gaming
+    ./unity
     #./android
   ];
 
