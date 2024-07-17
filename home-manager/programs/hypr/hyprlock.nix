@@ -1,7 +1,7 @@
 { config, lib, pkgs, hn, ... }:
 {
   imports = [ 
-    ./hyprland-environment-${hn}.nix
+    ./${hn}/hyprland-environment.nix
   ];
 
   home.file."Images/lock/face.png" = { source = ../../wallpapers/vector3square.png; };

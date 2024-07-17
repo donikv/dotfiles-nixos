@@ -1,7 +1,7 @@
 { config, lib, pkgs, hn, ... }:
 {
   imports = [ 
-    ./hyprland-environment-${hn}.nix
+    ./hyprland-environment.nix
   ];
 
   home.file.".config/hypr/hypridle.conf".text = ''
@@ -35,9 +35,9 @@
     #    on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
     #}
 
-    listener {
-        timeout = 420                                 # 7min
-        on-timeout = systemctl suspend                # suspend pc
-    }
+    # listener {
+    #     timeout = 420                                 # 7min
+    #     on-timeout = systemctl suspend                # suspend pc
+    # }
   '';
 }
