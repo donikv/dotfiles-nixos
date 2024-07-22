@@ -36,6 +36,7 @@
                   border-bottom: 0px solid #ffffff;
                   /* color: #FFFFFF; */
                   background: transparent;
+                  opacity: 0.9;
                }
                window > box {
                  margin-left: 5px;
@@ -45,7 +46,7 @@
                  padding: 3px;
                  padding-left:8px;
                  border: 2px none #33ccff;
-                 opacity: 0.9;
+                 opacity: 0.95;
                }
          #workspaces {
                  padding-left: 0px;
