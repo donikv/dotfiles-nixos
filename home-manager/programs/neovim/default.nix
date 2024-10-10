@@ -2,7 +2,7 @@
   programs.neovim.enable = true;
 
   home.packages = with pkgs; [
-    distant
+    #distant
     nodejs_22
   ];
 
