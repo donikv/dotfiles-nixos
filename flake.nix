@@ -79,6 +79,13 @@
           ./nixos/configuration.nix
         ];
       };
+      nixos-zotac = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "zotac"; inherit inputs outputs;};
+        modules = with self.nixosModules; [
+          # > Our main nixos configuration file <
+          ./nixos/configuration.nix
+        ];
+      };
       nixos-fax = nixpkgs.lib.nixosSystem {
         specialArgs = {hn = "fax"; inherit inputs outputs;};
         modules = with self.nixosModules; [
@@ -95,6 +102,15 @@
       "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {hn = "envy"; inherit inputs outputs hyprland distant;};
+        modules = with self.homeManagerModules; [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
+      };
+      "donik@nixos-zotac" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {hn = "zotac"; inherit inputs outputs hyprland distant;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
