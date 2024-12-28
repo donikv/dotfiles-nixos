@@ -1,0 +1,21 @@
+2024-10-01 11:00:03.666 ERROR (MainThread) [zigpy.zcl] [0xBFC4:1:0x0402] Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/zigpy/zcl/__init__.py", line 415, in reply
+    return await self._endpoint.reply(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/zigpy/endpoint.py", line 290, in reply
+    return await self.device.reply(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/zigpy/device.py", line 508, in reply
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/zigpy/device.py", line 334, in request
+    await send_request()
+  File "/usr/local/lib/python3.12/site-packages/zigpy/application.py", line 841, in request
+    await self.send_packet(
+  File "/usr/local/lib/python3.12/site-packages/zigpy_znp/zigbee/application.py", line 959, in send_packet
+    await self._send_request_raw(
+  File "/usr/local/lib/python3.12/site-packages/zigpy_znp/zigbee/application.py", line 850, in _send_request_raw
+    response = await asyncio.shield(
+               ^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+

@@ -12,6 +12,14 @@
     #./unity
     #./android
   ];
+  
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+    firefox
+  ];
+
 
 #   programs.regreet.enable = true;
 #   services.greetd = {

@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "minor_version": 6,
+  "key": "core.area_registry",
+  "data": {
+    "areas": [
+      {
+        "aliases": [],
+        "floor_id": "prizemlje",
+        "icon": "mdi:sofa",
+        "id": "living_room",
+        "labels": [],
+        "name": "Dnevna Soba",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "floor_id": "prizemlje",
+        "icon": "mdi:table-chair",
+        "id": "kitchen",
+        "labels": [],
+        "name": "Kuhinja",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "floor_id": "1_kat",
+        "icon": "mdi:bed-king",
+        "id": "bedroom",
+        "labels": [],
+        "name": "Velika Soba",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "floor_id": "1_kat",
+        "icon": "mdi:bed-double",
+        "id": "mala_soba",
+        "labels": [],
+        "name": "Mala Soba",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "floor_id": "prizemlje",
+        "icon": "mdi:shower",
+        "id": "kupaona",
+        "labels": [],
+        "name": "Kupaona",
+        "picture": null
+      },
+      {
+        "aliases": [],
+        "floor_id": "prizemlje",
+        "icon": "mdi:door",
+        "id": "predsoblje",
+        "labels": [],
+        "name": "Predsoblje",
+        "picture": null
+      }
+    ]
+  }
+}

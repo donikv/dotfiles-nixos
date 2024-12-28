@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "core.config_entries",
+  "data": {
+    "entries": [
+      {
+        "data": {},
+        "disabled_by": null,
+        "domain": "sun",
+        "entry_id": "01J3FFC5W1FV54EX05JEE5YE79",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "import",
+        "title": "Sun",
+        "unique_id": null,
+        "version": 1
+      },
+      {
+        "data": {},
+        "disabled_by": null,
+        "domain": "bluetooth",
+        "entry_id": "01J3FFC63F5JFB7QZEZ8WYMRRP",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "integration_discovery",
+        "title": "Intel Corporate None (F4:96:34:37:8C:1D)",
+        "unique_id": "F4:96:34:37:8C:1D",
+        "version": 1
+      },
+      {
+        "data": {},
+        "disabled_by": null,
+        "domain": "shopping_list",
+        "entry_id": "01J3FG7KD5V2A6B8VCZ2GES24R",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "onboarding",
+        "title": "Shopping list",
+        "unique_id": "shopping_list",
+        "version": 1
+      },
+      {
+        "data": {
+          "language": "en",
+          "tld": "com"
+        },
+        "disabled_by": null,
+        "domain": "google_translate",
+        "entry_id": "01J3FG7KDFNHQECQKWJBT6S75P",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "onboarding",
+        "title": "Google Translate text-to-speech",
+        "unique_id": null,
+        "version": 1
+      },
+      {
+        "data": {
+          "track_home": true
+        },
+        "disabled_by": null,
+        "domain": "met",
+        "entry_id": "01J3FG7KDZQM8D07E8FB4XW83N",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "onboarding",
+        "title": "Home",
+        "unique_id": null,
+        "version": 1
+      },
+      {
+        "data": {},
+        "disabled_by": null,
+        "domain": "radio_browser",
+        "entry_id": "01J3FG7KKTMBZ9YXKGCRQE27PX",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "onboarding",
+        "title": "Radio Browser",
+        "unique_id": null,
+        "version": 1
+      },
+      {
+        "data": {
+          "username": "donikv@gmail.com",
+          "password": "Dodovragg1"
+        },
+        "disabled_by": null,
+        "domain": "tado",
+        "entry_id": "01J3FGA1DVENSCR7B5MAJN3AK6",
+        "minor_version": 1,
+        "options": {
+          "fallback": "TADO_DEFAULT"
+        },
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "homekit",
+        "title": "Rečica",
+        "unique_id": "1140999",
+        "version": 1
+      },
+      {
+        "data": {
+          "device": {
+            "path": "/dev/ttyUSB0",
+            "baudrate": 115200,
+            "flow_control": null
+          },
+          "radio_type": "znp"
+        },
+        "disabled_by": null,
+        "domain": "zha",
+        "entry_id": "01J3FGB4Z39HQPH8YP18XSJCAZ",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "usb",
+        "title": "slae.sh cc2652rb stick - slaesh's iot stuff - slae.sh cc2652rb stick - slaesh's iot stuff",
+        "unique_id": "10C4:EA60_00_12_4B_00_23_90_D4_99_Silicon Labs_slae.sh cc2652rb stick - slaesh's iot stuff - slae.sh cc2652rb stick - slaesh's iot stuff",
+        "version": 4
+      },
+      {
+        "data": {
+          "app_id": "io.homeassistant.companion.android",
+          "app_name": "Home Assistant",
+          "app_version": "2024.7.3-full (13278)",
+          "device_name": "S24Ultra",
+          "manufacturer": "samsung",
+          "model": "SM-S928B",
+          "os_name": "Android",
+          "os_version": "34",
+          "supports_encryption": false,
+          "app_data": {
+            "push_websocket_channel": true,
+            "push_url": "https://mobile-apps.home-assistant.io/api/sendPush/android/v1",
+            "push_token": "eZNgM8ypTiCzz4s_wA2j_3:APA91bH6yisOPdzTDjn4L6f1PYm_xL9Ux_1SIECRDoo61F3LzAyNER8sbJtuCNZAPr2cX3lbdPCeHYDMhrDbwhFDCYmHEpLXbe-Kqr7yGynKEsjUnT9vUU2O_IvWqMgcB41vkoxsQvAA"
+          },
+          "device_id": "b3086d6ca48e4f3d",
+          "webhook_id": "bb1307bb715b490d3bc7f11f33d02349fe90f0eeb17d48bc4262e7aabbb2170b",
+          "user_id": "ee32bf8199594b38ab4e57a86d6d3bfa"
+        },
+        "disabled_by": null,
+        "domain": "mobile_app",
+        "entry_id": "01J3FKSW4D8AQ811X0NF17B62V",
+        "minor_version": 1,
+        "options": {},
+        "pref_disable_new_entities": false,
+        "pref_disable_polling": false,
+        "source": "registration",
+        "title": "S24Ultra",
+        "unique_id": "io.homeassistant.companion.android-b3086d6ca48e4f3d",
+        "version": 1
+      }
+    ]
+  }
+}
