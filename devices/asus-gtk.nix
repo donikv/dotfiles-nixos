@@ -5,17 +5,24 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      nix/home-manager.nix
+      # nix/plasma.nix #nix/gnome.nix
+      nix/locale.nix
       nix/common.nix
-      nix/python.nix
-      #nix/conda-shell.nix
+      #nix/python.nix
       nix/dropbox.nix
       nix/nvidia.nix
       nix/office.nix
-    ];
-
+      nix/dev.nix
+      nix/gaming.nix
+    ] ++ (import nix/window-server.nix).getWindowServer (import nix/window-server.nix).gtk;
+	
+  # Kernel.
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,31 +36,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Zagreb";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "hr_HR.UTF-8";
-    LC_IDENTIFICATION = "hr_HR.UTF-8";
-    LC_MEASUREMENT = "hr_HR.UTF-8";
-    LC_MONETARY = "hr_HR.UTF-8";
-    LC_NAME = "hr_HR.UTF-8";
-    LC_NUMERIC = "hr_HR.UTF-8";
-    LC_PAPER = "hr_HR.UTF-8";
-    LC_TELEPHONE = "hr_HR.UTF-8";
-    LC_TIME = "hr_HR.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -90,10 +72,35 @@
     description = "donik";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+    #  firefox
     #  thunderbird
     ];
+    };
+
+  #programs.git = {
+  #  enable = true;
+  #  userName  = "my_git_username";
+  #  userEmail = "my_git_username@gmail.com";
+  #};
+
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch";
+    };
+    histSize = 10000;
+    #histFile = "${config.xdg.dataHome}/zsh/history";  
+    
+    ohMyZsh  = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
   };
+  
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
@@ -109,9 +116,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
+  ] ++ (import nix/window-server.nix).getPackages {isgtk = (import nix/window-server.nix).gtk;};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

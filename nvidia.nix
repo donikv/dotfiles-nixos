@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   nixpkgs.config.cudaSupport = true;
-  environment.systemPackages = with pkgs; [cudaPackages_12_2.cudatoolkit];
+  environment.systemPackages = with pkgs; [cudaPackages.cudatoolkit];
 
   # Enable OpenGL
   hardware.opengl = {
