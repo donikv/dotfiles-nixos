@@ -4,7 +4,7 @@
     ./fonts
     ./virtualisation
     ./syncthing
-    ./gnome
+    #./gnome
     #./hypr
     #./amd
     ./locale

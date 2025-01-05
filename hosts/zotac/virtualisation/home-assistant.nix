@@ -5,7 +5,7 @@
   virtualisation.oci-containers = {
     backend = "docker";
     containers.homeassistant = {
-      volumes = [ "home-assistant:/config" ];
+      volumes = [ "/opt/homeassistant:/config" ];
       environment.TZ = "Europe/Berlin";
       image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
       extraOptions = [ 
