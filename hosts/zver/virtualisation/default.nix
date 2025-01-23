@@ -8,7 +8,7 @@
   
   #hardware.nvidia-container-toolkit.enable = true;
   
-  users.groups.docker.members = [ "donik" ];
+  users.groups.docker.members = [ "ipg" ];
 
   environment.systemPackages = with pkgs; [
     docker-compose

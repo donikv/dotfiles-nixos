@@ -19,78 +19,18 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./programs
-    ./scripts
-    ./themes
+    #./scripts
   ];
 
   home.packages = with pkgs; ([
-    
-    #general
-    bibata-cursors
-    kitty
-    gedit
-    vlc
-    obsidian
-    whatsapp-for-linux        
-
-    #office
-    libreoffice-qt
-    hunspell
-    hunspellDicts.uk_UA
-    hunspellDicts.th_TH
-
     #utils - copied from hyprland git repo
     ranger
-    wlr-randr
     git
-    rustup
     gnumake
-    catimg
     curl
-    appimage-run
-    xflux
-    dunst
-    pavucontrol
-    sqlite
     neofetch
     networkmanagerapplet
-    playerctl
-
-    #misc 
-    cava
-    jq
-    #neovim
-    nano
-    #rofi-wayland
-    wofi
-    nitch
-    wget
-    grim
-    slurp
-    wl-clipboard
-    pamixer
-    mpc-cli
-    tty-clock
-    eza
-    btop
-    tokyo-night-gtk
-  ]) ++ (with pkgs.gnome; [ 
-    nautilus
-    zenity
-    gnome-tweaks
-    eog
   ]);
-
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-macchiato-teal-standard+default";
-    };
-  };
 
   nixpkgs = {
     # You can add overlays here
@@ -123,8 +63,8 @@
 
   # TODO: Set your username
   home = {
-    username = "donik";
-    homeDirectory = "/home/donik";
+    username = "ipg";
+    homeDirectory = "/home/ipg";
   };
 
   # Add stuff for your user as you see fit:
@@ -144,5 +84,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 }

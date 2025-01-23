@@ -7,37 +7,21 @@
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin.url = "github:catppuccin/nix";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    distant.url = "github:myclevorname/distant"; # Temporary
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    hyprland,
-    catppuccin,
     nix-flatpak,
-    distant,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -72,24 +56,16 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      nixos-envy = nixpkgs.lib.nixosSystem {
-        specialArgs = {hn = "envy"; inherit inputs outputs;};
+      zver12 = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "zver12"; inherit inputs outputs;};
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
       };
-      nixos-zotac = nixpkgs.lib.nixosSystem {
-        specialArgs = {hn = "zotac"; inherit inputs outputs;};
+      zver13 = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "zver13"; inherit inputs outputs;};
         modules = with self.nixosModules; [
-          # > Our main nixos configuration file <
-          ./nixos/configuration.nix
-        ];
-      };
-      nixos-fax = nixpkgs.lib.nixosSystem {
-        specialArgs = {hn = "fax"; inherit inputs outputs;};
-        modules = with self.nixosModules; [
-          nix-flatpak.nixosModules.nix-flatpak
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
@@ -99,34 +75,20 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "donik@nixos-envy" = home-manager.lib.homeManagerConfiguration {
+      "ipg@zver12" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "envy"; inherit inputs outputs hyprland distant;};
+        extraSpecialArgs = {hn = "zver12"; inherit inputs outputs;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          catppuccin.homeManagerModules.catppuccin
         ];
       };
-      "donik@nixos-zotac" = home-manager.lib.homeManagerConfiguration {
+      "ipg@zver13" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "zotac"; inherit inputs outputs hyprland distant;};
+        extraSpecialArgs = {hn = "zver13"; inherit inputs outputs;};
         modules = with self.homeManagerModules; [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          catppuccin.homeManagerModules.catppuccin
-        ];
-      };
-      "donik@nixos-fax" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "fax"; inherit inputs outputs hyprland distant;};
-        modules = with self.homeManagerModules; [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-          catppuccin.homeManagerModules.catppuccin
-          
-          # inputs.plasma-manager.homeManagerModules.plasma-manager
-          # ./home-manager/programs/plasma
         ];
       };
     };

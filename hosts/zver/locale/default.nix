@@ -16,4 +16,10 @@
     LC_TELEPHONE = "hr_HR.UTF-8";
     LC_TIME = "hr_HR.UTF-8";
   };
+
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
 }
