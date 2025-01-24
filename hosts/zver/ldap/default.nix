@@ -19,7 +19,7 @@
       bindpw Couchman1307
       pam_filter memberOf=cn=zver13,ou=Machines,dc=ipg,dc=com
       TLS_REQCERT allow
-      TLS_CACERT /etc/ldap_ssl/ca.crt
+      #TLS_CACERT /etc/ldap_ssl/ca.crt
       SASL_MECH SIMPLE
     '';
    # daemon = {
@@ -31,9 +31,9 @@
     bind.policy = "hard_open";
   };
   
-  environment.etc = {
-    ldap_ssl.source = ./ssl;
-  };
+ # environment.etc = {
+ #   ldap_ssl.source = ./ssl;
+ # };
 
   #security.pki.certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-certificates.crt"];
 
