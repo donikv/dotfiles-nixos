@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     openldap
     openssl
+    cacert
   ];
 
   users.ldap = {
@@ -14,25 +15,27 @@
     extraConfig = ''
       ldap_version 3
       pam_password md5
-      # binddn cn=administrator,dc=ipg,dc=com
-      # bindpw Couchman1307
+      binddn cn=administrator,dc=ipg,dc=com
+      bindpw Couchman1307
       pam_filter memberOf=cn=zver13,ou=Machines,dc=ipg,dc=com
       TLS_REQCERT allow
-      TLS_CACERT /etc/ssl/certs/ca-certificates.crt
+      TLS_CACERT /etc/ldap_ssl/ca.crt
+      SASL_MECH SIMPLE
     '';
    # daemon = {
    #   enable = true;
-   #   rootpwmoddn = "dn=admin,dc=ipg,dc=com";
+   #  rootpwmoddn = "dn=admin,dc=ipg,dc=com";
    # };
-    bind.distinguishedName = "cn=admin,dc=ipg,dc=com";
-    bind.passwordFile = "/etc/bind_password";
-    bind.policy = "soft";
+    #bind.distinguishedName = "cn=admin,dc=ipg,dc=com";
+    #bind.passwordFile = "/etc/bind_password";
+    bind.policy = "hard_open";
   };
   
   environment.etc = {
-    ssl.source = ./ssl;
+    ldap_ssl.source = ./ssl;
   };
-  security.pki.certificateFiles = ["/etc/ssl/ca.crt"];
+
+  #security.pki.certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-certificates.crt"];
 
 
   security.pam.services.sshd = {
