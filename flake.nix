@@ -10,7 +10,7 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -68,6 +68,13 @@
         modules = with self.nixosModules; [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+         # home-manager.nixosModules.home-manager
+         # {
+         #   home-manager.useGlobalPkgs = true;
+         #   home-manager.useUserPackages = true;
+         #   home-manager.users.ipg = import ./home-manager/home.nix;
+         # }
         ];
       };
     };

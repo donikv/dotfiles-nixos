@@ -5,7 +5,7 @@
     ./virtualisation
     ./nvidia
     ./locale
-
+    ./ldap
  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -14,9 +14,10 @@
   users.users.ipg = {
     isNormalUser = true;
     description = "ipg";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       vim
+      git
     ];
   };
 
@@ -26,13 +27,13 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
-
+  
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    config.common.default = "*";
   };
-
-  #NETWORKING FOR KDE CONNECT
+  
   networking.firewall = { 
     enable = false;
   };  
@@ -40,7 +41,9 @@
   services.openssh = {
      enable = true;
      ports = [ 443 5555 ];
+     settings.PermitRootLogin = "yes";
   };
+  services.sshd.enable = true;
   
   system.stateVersion = "24.11"; # Did you read the comment?
 }
