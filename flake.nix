@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -81,23 +81,23 @@
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "ipg@zver12" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "zver12"; inherit inputs outputs;};
-        modules = with self.homeManagerModules; [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-        ];
-      };
-      "ipg@zver13" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {hn = "zver13"; inherit inputs outputs;};
-        modules = with self.homeManagerModules; [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-        ];
-      };
-    };
+    #homeConfigurations = {
+    #  "ipg@zver12" = home-manager.lib.homeManagerConfiguration {
+    #    pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+    #    extraSpecialArgs = {hn = "zver12"; inherit inputs outputs;};
+    #    modules = with self.homeManagerModules; [
+    #      # > Our main home-manager configuration file <
+    #      ./home-manager/home.nix
+    #    ];
+    #  };
+    #  "ipg@zver13" = home-manager.lib.homeManagerConfiguration {
+    #    pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+    #    extraSpecialArgs = {hn = "zver13"; inherit inputs outputs;};
+    #    modules = with self.homeManagerModules; [
+    #      # > Our main home-manager configuration file <
+    #      ./home-manager/home.nix
+    #    ];
+    #  };
+    #};
   };
 }

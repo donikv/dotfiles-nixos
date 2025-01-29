@@ -83,76 +83,7 @@
   # TODO: Set your host
   networking.hostName = "${hn}";
   networking.networkmanager.enable = true;  
-
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  # boot.kernelPackages = pkgs.linuxPackages_6_6;  
-
-  # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
-  
-  # Configure keymap in X11
-  # services.xserver = {
-  #   enable = true;
-  #   xkb.layout = "us";
-  #   xkb.variant = "";
-  # };
-  # services.displayManager.sddm.wayland.enable = true;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = false;
-  # hardware.pulseaudio.support32Bit = true;
-  # hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  # hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-  # hardware.firmware = [ pkgs.sof-firmware ]; 
-  # hardware.bluetooth.enable = true; # enables support for Bluetooth
-  # hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  # services.blueman.enable = true; # enables the Bluetooth manager
-
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  # };
-
-  # services.libinput.enable = true;
-  # services.libinput.touchpad.naturalScrolling = true;
-  # services.libinput.touchpad.tapping = false;
-  # services.libinput.touchpad.disableWhileTyping = true;
-  # services.libinput.touchpad.horizontalScrolling = true;
-  # services.xserver.modules = [ pkgs.xf86_input_wacom ];
-  # services.xserver.wacom.enable = true;
-
-  # # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  # users.users = {
-  #   # FIXME: Replace with your username
-  #   ipg = {
-  #     # TODO: You can set an initial password for your user.
-  #     # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-  #     # Be sure to change it (using passwd) after rebooting!
-  #     initialPassword = "password";
-  #     isNormalUser = true;
-  #     openssh.authorizedKeys.keys = [
-  #       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-  #     ];
-  #     # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-  #     extraGroups = ["networkmanager" "wheel" "docker"];
-  #   };
-  # };
-  #services.xserver.displayManager.autoLogin.enable = true;
-  #services.xserver.displayManager.autoLogin.user = "donik";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  # systemd.services."getty@tty1".enable = false;
-  # systemd.services."autovt@tty1".enable = false;
-
-  # Allow unfree packages
-  #nixpkgs.config.allowUnfree = true;
+ 
   hardware.enableAllFirmware = true;
   hardware.sensor.iio.enable = true;
   
@@ -164,17 +95,6 @@
      groups = ["wheel" "root"];  
   }];
  
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  #     # Forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  #     # Use keys only. Remove if you want to SSH using password (not recommended)
-  #     PasswordAuthentication = true;
-  #   };
-  # };
 
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
