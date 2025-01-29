@@ -18,7 +18,7 @@
       pam_password md5
       binddn cn=administrator,dc=ipg,dc=com
       bindpw Couchman1307
-      pam_filter memberOf=cn=zver13,ou=Machines,dc=ipg,dc=com
+      #pam_filter memberOf=cn=zver13,ou=Machines,dc=ipg,dc=com EDITED IN INDIVIDUAL CONFIG
       TLS_REQCERT allow
       #TLS_CACERT /etc/ldap_ssl/ca.crt
       SASL_MECH SIMPLE
