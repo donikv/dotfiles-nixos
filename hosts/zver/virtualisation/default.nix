@@ -10,7 +10,7 @@
   };
   
   users.groups.docker = lib.mkForce {
-    gid = 131;
+    gid = 999;
   };
   
   users.groups.nscd = lib.mkForce {
