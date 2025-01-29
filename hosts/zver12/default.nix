@@ -7,7 +7,7 @@
   systemd.services.NetworkManager-wait-online.enable = false;
  
   users.ldap.extraConfig = ''
-      pam_filter memberOf=cn=zver12,ou=Machines,dc=ipg,dc=com #EDITED BY INDIVIDUAL CONFIG
+      pam_filter memberOf=cn=zver12,ou=Machines,dc=ipg,dc=com
   '';
   
   networking = {
