@@ -25,7 +25,7 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vim
     git
-    (python312Full.withPackages(ps: with ps; [
+    (python39Full.withPackages(ps: with ps; [
       ps.pip
     ]))
   ];
