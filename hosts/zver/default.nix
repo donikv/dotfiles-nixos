@@ -25,8 +25,9 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vim
     git
-    python312Full
-    python312Packages.pip
+    (python312Full.withPackages(ps: with ps; [
+      ps.pip
+    ]))
   ];
   
   #Link python for ansible backwards compatibility with ubuntu machines
