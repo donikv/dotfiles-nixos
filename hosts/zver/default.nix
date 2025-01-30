@@ -29,6 +29,11 @@
     python312Packages.pip
   ];
   
+  #Link python for ansible backwards compatibility with ubuntu machines
+  systemd.tmpfiles.rules = [
+    "L /usr/bin/python3 - - - - /run/current-system/sw/bin/python3"
+  ];
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
