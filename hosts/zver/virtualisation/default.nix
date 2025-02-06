@@ -15,6 +15,7 @@
 	
 	  done
     '';
+in
 {
   imports = [
     ./prometheus
