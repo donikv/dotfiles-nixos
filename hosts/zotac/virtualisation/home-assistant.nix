@@ -7,7 +7,8 @@
     containers.homeassistant = {
       volumes = [ "/opt/homeassistant:/config" ];
       environment.TZ = "Europe/Berlin";
-      image = "ghcr.io/home-assistant/home-assistant@sha256:5d510569a2ceaa2fa8f8a34b91bddd36f5f7f03e4cb23e942f245e4a5a98bbef"; # Warning: if the tag does not change, the image will not be updated
+      image = "docker.io/homeassistant/home-assistant@sha256:baa42a8dcfb5e9a4266201d8c6fe35242e1112d3b0fd056dbd661534e9c03efc";
+      #image = "ghcr.io/home-assistant/home-assistant@sha256:5d510569a2ceaa2fa8f8a34b91bddd36f5f7f03e4cb23e942f245e4a5a98bbef"; # Warning: if the tag does not change, the image will not be updated
       extraOptions = [ 
         "--privileged"
         "--network=host" 
