@@ -49,6 +49,7 @@
      enable = true;
      ports = [ 443 5555 ];
      settings.PermitRootLogin = "yes";
+     settings.UseDns = false;
   };
   services.sshd.enable = true;
   
