@@ -43,7 +43,7 @@
   };
   
   networking.firewall = { 
-    enable = true;
+    enable = false;
   };  
 
   services.openssh = {
