@@ -6,6 +6,7 @@
     ./nvidia
     ./locale
     ./ldap
+    ./networking
  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
