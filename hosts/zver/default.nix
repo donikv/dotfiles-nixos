@@ -41,10 +41,7 @@
     wlr.enable = true;
     config.common.default = "*";
   };
-  
-  networking.firewall = { 
-    enable = false;
-  };  
+ 
 
   services.openssh = {
      enable = true;
