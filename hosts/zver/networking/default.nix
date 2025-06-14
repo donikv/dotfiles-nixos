@@ -4,8 +4,8 @@
     nftables
     iptables
   ];
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = false;  # adjust as needed
+  #networking.firewall.enable = true;
+  networking.firewall.allowPing = true;  # adjust as needed
   networking.firewall.logRefusedConnections = false;  # adjust as needed
 
   networking.firewall.extraCommands = ''
