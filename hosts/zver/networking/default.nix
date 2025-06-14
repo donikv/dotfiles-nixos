@@ -20,15 +20,16 @@
     iptables -P OUTPUT ACCEPT
 
     # Allow loopback
-    iptables -A INPUT -i lo -j ACCEPT
+    iptables -A INPUT 1 -i lo -j ACCEPT
 
     # Allow established connections
-    iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+    iptables -A INPUT 2 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 
     # Allow traffic from specified IPs and subnet
-    iptables -A INPUT -s 10.0.0.0/8 -j ACCEPT
-    iptables -A INPUT -s 161.53.78.45 -j ACCEPT
-    iptables -A INPUT -s 161.53.78.46 -j ACCEPT
+    iptables -A INPUT 3 -s 10.0.0.0/8 -j ACCEPT
+    iptables -A INPUT 4 -s 161.53.78.45 -j ACCEPT
+    iptables -A INPUT 5 -s 161.53.78.46 -j ACCEPT
+    iptables -I INPUT 6 -j DROP
   '';
 
   networking.firewall.extraStopCommands = ''
