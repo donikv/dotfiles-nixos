@@ -9,7 +9,7 @@
       pam_filter memberOf=cn=zver1,ou=Machines,dc=ipg,dc=com
   '';
   networking = {
-    interfaces.eno1 = {
+    interfaces.enp0s25 = {
       ipv4.addresses = [{
         address = "161.53.64.237";
         prefixLength = 24;
@@ -22,7 +22,7 @@
     };
     defaultGateway = {
       address = "10.53.0.1";
-      interface = "eno1";
+      interface = "enp0s25";
     };
   };
  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
