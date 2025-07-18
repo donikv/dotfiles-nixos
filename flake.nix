@@ -56,6 +56,13 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
+      zver1 = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "zver1"; inherit inputs outputs;};
+        modules = with self.nixosModules; [
+          # > Our main nixos configuration file <
+          ./nixos/configuration.nix
+        ];
+      };
       zver3 = nixpkgs.lib.nixosSystem {
         specialArgs = {hn = "zver3"; inherit inputs outputs;};
         modules = with self.nixosModules; [
