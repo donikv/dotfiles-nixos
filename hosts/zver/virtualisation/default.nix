@@ -22,9 +22,10 @@ in
   ];
   virtualisation = {
     docker.enable = true;
-    docker.enableNvidia = true;
+    docker.enableOnBoot = true;
   };
-  
+  hardware.nvidia-container-toolkit.enable = true;
+
   users.groups.docker = lib.mkForce {
     gid = 999;
   };

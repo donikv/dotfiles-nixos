@@ -3,7 +3,7 @@
      run-docker-monitoring = pkgs.writeShellScriptBin "run-docker-monitoring" ''
         name='nvidia-dcgm-exporter'
         echo "Running $name"
-        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || docker run --gpus all -d --restart=always --name=$name nvidia/dcgm-exporter:1.0.0-beta
+        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || docker run --device=nvidia.com/gpu=all -d --restart=always --name=$name nvidia/dcgm-exporter:1.0.0-beta
       
         name='prometheus-node-exporter'
         echo "Running $name"
