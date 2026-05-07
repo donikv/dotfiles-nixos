@@ -8,8 +8,8 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
-      nerdfonts
+      noto-fonts-color-emoji
+      #nerdfonts
       twemoji-color-font
       fira-code
       fira-code-symbols
