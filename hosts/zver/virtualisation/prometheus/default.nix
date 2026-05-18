@@ -1,14 +1,24 @@
 { config, pkgs, system, ... }: 
   let 
      run-docker-monitoring = pkgs.writeShellScriptBin "run-docker-monitoring" ''
+        docker stop prometheus-node-exporter nvidia-dcgm-exporter 2>/dev/null
+        docker rm prometheus-node-exporter nvidia-dcgm-exporter 2>/dev/null
+
         name='nvidia-dcgm-exporter'
         echo "Running $name"
-        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || docker run --device=nvidia.com/gpu=all -d --restart=always --name=$name nvidia/dcgm-exporter:latest
-      
+        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || \
+          docker run -d --restart=always --name=$name \
+            --device=nvidia.com/gpu=all \
+            --cap-add SYS_ADMIN \
+            -p 9400:9400 \
+            nvidia/dcgm-exporter:latest
+        
         name='prometheus-node-exporter'
         echo "Running $name"
-        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || docker run -d --restart=always --net="host" --pid="host" --name=$name --volumes-from nvidia-dcgm-exporter:ro quay.io/prometheus/node-exporter --collector.textfile.directory="/run/prometheus"        
-        
+        [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || \
+          docker run -d --restart=always --net="host" --pid="host" --name=$name \
+            quay.io/prometheus/node-exporter
+
         name='cadvisor'
         echo "Running $name"
         [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] || sudo docker run --restart=always --volume=/:/rootfs:ro   --volume=/var/run:/var/run:ro   --volume=/sys:/sys:ro   --volume=/var/lib/docker/:/var/lib/docker:ro   --volume=/dev/disk/:/dev/disk:ro   --publish=8080:8080   --detach=true   --name=$name   gcr.io/cadvisor/cadvisor:latest
