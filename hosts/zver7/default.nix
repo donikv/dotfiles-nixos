@@ -9,20 +9,20 @@
       pam_filter memberOf=cn=zver7,ou=Machines,dc=ipg,dc=com
   '';
   networking = {
-    interfaces.eno1 = {
+    interfaces.enp5s0 = {
       ipv4.addresses = [{
-        address = "161.53.64.196";
+        address = "161.53.64.231";
         prefixLength = 24;
       }
       {
-        address = "10.53.64.196";
+        address = "10.53.64.231";
         prefixLength = 16;
       }
       ];
     };
     defaultGateway = {
       address = "10.53.0.1";
-      interface = "eno1";
+      interface = "enp5s0";
     };
   };
  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
