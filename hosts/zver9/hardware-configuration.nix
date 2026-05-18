@@ -29,12 +29,12 @@
     ];
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d81f02fe-268b-4212-b12e-5337f9096cde";
+    { device = "/dev/disk/by-uuid/ea687250-d03e-49cf-beb7-71ed4df16c78";
       fsType = "ext4";
     };
     
   fileSystems."/mnt/ssd" =
-    { device = "/dev/disk/by-uuid/f6a9ee97-9e50-4239-a4aa-b184d0b84716";
+    { device = "/dev/disk/by-uuid/520f14a6-7cff-457f-82ef-913f86ebaec7";
       fsType = "ext4";
     };
 
