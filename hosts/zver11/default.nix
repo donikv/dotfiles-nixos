@@ -33,9 +33,10 @@
  };
  # Aditional networking options
  # Host port open from anywhere (outside Docker)
- networking.firewall.allowedTCPPorts = [ 5555 ];
+ #networking.firewall.allowedTCPPorts = [ 5555 ];
   
  networking.firewall.extraCommands = lib.mkAfter ''
+  iptables -I INPUT 1 -p tcp --dport 5555 -j ACCEPT 
   # Published container ports reachable from anywhere
   # EICACS WEBAPP
   iptables -I DOCKER-USER 1 -p tcp --dport 8081 -j ACCEPT
