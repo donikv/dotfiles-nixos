@@ -62,6 +62,13 @@
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
+      };      
+      zver2 = nixpkgs.lib.nixosSystem {
+        specialArgs = {hn = "zver2"; inherit inputs outputs;};
+        modules = with self.nixosModules; [
+          # > Our main nixos configuration file <
+          ./nixos/configuration.nix
+        ];
       };
       zver3 = nixpkgs.lib.nixosSystem {
         specialArgs = {hn = "zver3"; inherit inputs outputs;};
