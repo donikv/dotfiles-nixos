@@ -8,43 +8,34 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/91090505-90c4-498b-b47f-e1df0c0c254c";
+    { device = "/dev/disk/by-uuid/263cf17e-7dd0-4000-8352-e7b9760ed801";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CE47-6061";
+    { device = "/dev/disk/by-uuid/2E8B-EC2A";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/d3288caa-6df4-4178-856d-615c0a2bd7cd"; }
-    ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/a8e6f82f-d945-448c-99de-969fd76cfcf1"; }];
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d81f02fe-268b-4212-b12e-5337f9096cde";
+    { device = "/dev/disk/by-uuid/76d37e0d-0e5d-496f-8031-73f65f51c989";
       fsType = "ext4";
     };
     
   fileSystems."/mnt/ssd" =
-    { device = "/dev/disk/by-uuid/f6a9ee97-9e50-4239-a4aa-b184d0b84716";
+    { device = "/dev/disk/by-uuid/11cbd0ae-8899-480e-b203-0e7b8b65606d";
       fsType = "ext4";
     };
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-
