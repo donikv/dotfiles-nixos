@@ -31,4 +31,8 @@
     "127.0.0.1" = ["localhost"];
  #   "192.0.2.1" = ["mail.example.com" "imap.example.com"];
  };
+ networking.firewall.extraCommands = lib.mkAfter ''
+    # Allow TCP 8850-8999 into containers from anywhere -> students
+    iptables -I DOCKER-USER 1 -p tcp --dport 8850:8999 -j ACCEPT
+  '';
 }
