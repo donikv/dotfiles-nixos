@@ -39,7 +39,7 @@
   # Published container ports reachable from anywhere
   # EICACS WEBAPP
   iptables -I DOCKER-USER 1 -p tcp --dport 8081 -j ACCEPT
-  iptables -I DOCKER-USER 1 -p tcp --dport 27017 -j ACCEPT
+  # iptables -I DOCKER-USER 1 -p tcp --dport 27017 -j ACCEPT
   # DENIS ZUBARI
   iptables -I DOCKER-USER 1 -p tcp --dport 5672 -j ACCEPT
   iptables -I DOCKER-USER 1 -p tcp --dport 15672 -j ACCEPT
