@@ -31,4 +31,17 @@
     "127.0.0.1" = ["localhost"];
  #   "192.0.2.1" = ["mail.example.com" "imap.example.com"];
  };
+ # Aditional networking options
+ # Host port open from anywhere (outside Docker)
+ networking.firewall.allowedTCPPorts = [ 5555 ];
+  
+ networking.firewall.extraCommands = lib.mkAfter ''
+  # Published container ports reachable from anywhere
+  # EICACS WEBAPP
+  iptables -I DOCKER-USER 1 -p tcp --dport 8081 -j ACCEPT
+  iptables -I DOCKER-USER 1 -p tcp --dport 27017 -j ACCEPT
+  # DENIS ZUBARI
+  iptables -I DOCKER-USER 1 -p tcp --dport 5672 -j ACCEPT
+  iptables -I DOCKER-USER 1 -p tcp --dport 15672 -j ACCEPT
+ '';
 }
