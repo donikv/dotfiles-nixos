@@ -28,6 +28,8 @@
     git
     ncdu
     python313Packages.pip
+    screen
+    tmux
   ];
   
   #Link python for ansible backwards compatibility with ubuntu machines
