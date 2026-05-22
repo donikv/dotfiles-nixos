@@ -1,5 +1,8 @@
 { lib, config, pkgs, ... }:
 {
+  imports = [
+    ./healthcheck.nix
+  ];
   
   environment.systemPackages = with pkgs; [
     openldap
@@ -47,23 +50,4 @@
   systemd.tmpfiles.rules = [
     "L /bin/bash - - - - /run/current-system/sw/bin/bash"
   ];
-
-  systemd.services.logind-healthcheck = {
-    description = "Restart systemd-logind if unresponsive";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = pkgs.writeShellScript "logind-healthcheck" ''
-        ${pkgs.bustle}/bin/busctl status org.freedesktop.login1 || \
-          systemctl restart systemd-logind
-      '';
-    };
-  };
-  
-  systemd.timers.logind-healthcheck = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "*-*-* 03:00:00";
-      Persistent = true;
-    };
-  };
 }
