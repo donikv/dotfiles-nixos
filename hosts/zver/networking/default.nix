@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [
-    ./docker
-  ];
+  #imports = [
+    #./docker
+  #];
   environment.systemPackages = with pkgs; [
     nftables
     iptables
@@ -16,7 +16,7 @@
     iptables -F INPUT
     # Drop by default
     iptables -P INPUT DROP
-    iptables -P FORWARD DROP
+    #iptables -P FORWARD DROP
     iptables -P OUTPUT ACCEPT
     iptables -A INPUT -p icmp --icmp-type timestamp-request -j DROP
     iptables -A OUTPUT -p icmp --icmp-type timestamp-reply -j DROP
