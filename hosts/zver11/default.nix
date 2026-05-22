@@ -44,6 +44,8 @@
   # DENIS ZUBARI
   iptables -I DOCKER-USER 1 -p tcp --dport 5672 -j ACCEPT
   iptables -I DOCKER-USER 1 -p tcp --dport 15672 -j ACCEPT
+  iptables -I DOCKER-USER 1 -p tcp --dport 8000 -j ACCEPT
+  iptables -I DOCKER-USER 1 -p tcp --dport 18121 -j ACCEPT
   # LOVRE LONDON
   iptables -I DOCKER-USER 1 -p tcp --dport 10022 -j ACCEPT
  '';
