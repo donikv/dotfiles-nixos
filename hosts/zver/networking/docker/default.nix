@@ -17,7 +17,7 @@
     # Docker too. This forces Docker to re-plumb its iptables rules —
     # FORWARD, DOCKER, DOCKER-USER, per-bridge ACCEPTs — against the freshly
     # rebuilt firewall, instead of being left in a half-broken state.
-    partOf = [ "firewall.service" ];
+    # partOf = [ "firewall.service" ];
   
     # Anti-flapping window. systemd marks a service 'start-limit-hit' and
     # gives up if it starts more than <burst> times within <interval>.
