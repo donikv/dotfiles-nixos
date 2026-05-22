@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
-  #imports = [
-    #./docker
-  #];
+  imports = [
+    ./docker
+  ];
   environment.systemPackages = with pkgs; [
     nftables
     iptables
