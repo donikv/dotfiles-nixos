@@ -7,6 +7,13 @@
     nftables
     iptables
   ];
+
+  #Disable ipv6 because of the new networking configuration done at FER level to fix connectivity and ping issues.
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.disable_ipv6" = 1;
+    "net.ipv6.conf.default.disable_ipv6" = 1;
+  };
+
   networking.firewall = {
     enable = true;
     allowPing = true;
