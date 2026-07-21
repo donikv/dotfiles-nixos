@@ -51,6 +51,33 @@
      settings.UseDns = false;
   };
   services.sshd.enable = true;
-  
+
+  # NFSv4 client tooling. Harmless if already enabled elsewhere in your config.
+  # (rpcbind is NOT required for pure NFSv4; only add it if you fall back to v3.)
+  services.rpcbind.enable = lib.mkDefault true;
+
+  fileSystems."/mnt/nas" = {
+    device  = "10.53.6.1:/mnt/Storage/NetworkShare";
+    fsType  = "nfs";
+    options = [
+      "nfsvers=4.2"          # single TCP/2049, no statd/lockd port dance
+      "rsize=1048576"
+      "wsize=1048576"
+      "hard"                 # backup target: block rather than silently drop writes
+      "noatime"
+      "_netdev"              # this is a network fs; order after network is up
+      "nofail"               # boot proceeds even if the NAS is down
+      "x-systemd.automount"  # mount lazily on first access, not at boot
+      "x-systemd.idle-timeout=600"    # unmount after 10 min idle
+      "x-systemd.mount-timeout=15s"   # give up a stalled mount attempt quickly
+    ];
+  };
+
+  # Ensure the mountpoint exists (systemd creates it for automounts, but this is
+  # explicit and avoids surprises if you ever drop the automount option).
+  systemd.tmpfiles.rules = [
+    "d /mnt/nas 0755 root root - -"
+  ];
+
   system.stateVersion = "24.11"; # Did you read the comment?
 }
