@@ -33,8 +33,11 @@
   ];
   
   #Link python for ansible backwards compatibility with ubuntu machines
+  # Ensure the mountpoint exists (systemd creates it for automounts, but this is
+  # explicit and avoids surprises if you ever drop the automount option).
   systemd.tmpfiles.rules = [
     "L /usr/bin/python3 - - - - /run/current-system/sw/bin/python3"
+    "d /mnt/nas 0755 root root - -"
   ];
 
   xdg.portal = {
@@ -72,12 +75,6 @@
       "x-systemd.mount-timeout=15s"   # give up a stalled mount attempt quickly
     ];
   };
-
-  # Ensure the mountpoint exists (systemd creates it for automounts, but this is
-  # explicit and avoids surprises if you ever drop the automount option).
-  systemd.tmpfiles.rules = [
-    "d /mnt/nas 0755 root root - -"
-  ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }
