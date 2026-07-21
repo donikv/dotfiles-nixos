@@ -57,7 +57,7 @@
   services.rpcbind.enable = lib.mkDefault true;
 
   fileSystems."/mnt/nas" = {
-    device  = "10.53.6.1:/mnt/Storage/NetworkShare";
+    device  = "10.53.6.1:/mnt/Storage/NetworkShare/zveri";
     fsType  = "nfs";
     options = [
       "nfsvers=4.2"          # single TCP/2049, no statd/lockd port dance
